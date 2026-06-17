@@ -4,8 +4,10 @@ import { FaDownload } from "react-icons/fa6";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { Dancing_Script } from "next/font/google"
 import {Fraunces} from "next/font/google"
+import {Sora} from "next/font/google"
 import { IoIosStar } from "react-icons/io";
 const dancing = Dancing_Script({ subsets: ["latin"], weight: ["400", "700"] });
+const sora = Sora({ subsets: ["latin"], weight: ["400", "700"] });
 const fruances = Fraunces({
   subsets: ["latin"],
   weight: ["300", "400", "700"], // choose weights you need
@@ -50,20 +52,73 @@ export default function Home() {
         className="mt-8 shadow-lg object-cover object-top" fill priority
       />
 </div>
-      <div className="w-full pt-7 bg-[#260406] p-7 px-[10%] grid grid-cols-3 gap-6 text-center">
-        <div>
-          <h2 className="text-2xl font-bold text-white">5K+</h2>
-          <p className="text-white">Quotes Inspired</p>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-white">10K+</h2>
-          <p className="text-white">Downloads</p>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-white">5K+</h2>
-          <p className="text-white">Shares</p>
-        </div>
-      </div>
+<section className="w-full bg-[#260406] py-10 px-[10%] grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+  <div>
+    <h2 className="text-2xl font-bold text-white">20K+</h2>
+    <p className="text-gray-300">Quotes Inspired</p>
+  </div>
+  <div>
+    <h2 className="text-2xl font-bold text-white">20K+</h2>
+    <p className="text-gray-300">Downloads</p>
+  </div>
+  <div>
+    <h2 className="text-2xl font-bold text-white">25K+</h2>
+    <p className="text-gray-300">Shares</p>
+  </div>
+</section>
+
+      <section className="w-full text-center bg-white py-12 px-[10%]">
+  <h2 className={`${sora.className} text-3xl font-bold mb-6 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
+  <h3 className={`${fruances.className} text-xl font-semibold mb-4`}>
+    What Is <span className="italic">New Dawn, Same Fire</span> About?
+  </h3>
+  <p className="text-gray-700 mb-6">
+    Traci Merrill explores the beauty of beginning again while exploring the fire of purpose anew.
+  </p>
+
+  <ul className="grid grid-cols-2 gap-4 text-gray-800">
+    <li><strong>136+ Pages</strong> of inspiration</li>
+    <li><strong>Personal Memoir</strong> (a story of grace)</li>
+    <li><strong>Personal Stories</strong> (real & raw)</li>
+    <li><strong>Lesson On Renewal</strong> (for every season)</li>
+  </ul>
+</section>
+<section className="w-full bg-[#f9f9f9] py-12 px-[10%] ">
+  <h2 className="text-3xl font-bold mb-6 text-center">YOUR EXCLUSIVE GIFT</h2>
+  <p className="text-gray-700 mb-8 text-center">
+    An Exclusive Gift For Our Distinguished Guests. Choose how you’d like to experience the book.
+  </p>
+
+  <div className="grid md:grid-cols-2 gap-8">
+    {/* Complimentary Copy */}
+    <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6">
+      <h3 className="text-xl font-semibold mb-4">Download Your Complimentary Copy</h3>
+      <ul className="text-gray-600 mb-6">
+        <li>Read Anywhere</li>
+        <li>Instant Access</li>
+        <li>Complimentary Download</li>
+      </ul>
+      <button className="bg-[#260406] flex gap-4 text-white px-7 py-4 rounded">
+        <span><FaDownload /></span> <span>Download Complimentary Ebook</span>
+        </button>
+    </div>
+
+    {/* Signed Hard Copy */}
+    <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6">
+      <h3 className="text-xl font-semibold mb-4">Request a Signed Hard Copy</h3>
+      <ul className="text-gray-600 mb-6">
+        <li>Signed by Author</li>
+        <li>Hardcover Edition</li>
+        <li>Complimentary Copy</li>
+      </ul>
+      <button className="bg-[#E6E6E6] flex gap-4  text-[#260406] px-7 py-4 rounded">
+        <span><HiOutlineBookOpen /></span> <span>Request Signed Hard Copy</span>
+        </button>
+    </div>
+  </div>
+</section>
+
+
     </main>
     </>
   );
