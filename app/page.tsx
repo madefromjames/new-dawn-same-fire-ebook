@@ -117,6 +117,67 @@ export default function Home() {
     </div>
   </div>
 </section>
+<section className="w-full bg-white py-12 px-[10%] text-center">
+  {/* Author Image */}
+  <div className="flex justify-center mb-6">
+    <img
+      src="/thankyou.png"
+      alt="Author and Guests"
+      className="rounded-lg shadow-lg w-full max-w-3xl"
+    />
+  </div>
+
+  {/* Message */}
+  <h2 className="text-3xl font-bold mb-4">A Personal Thank You</h2>
+  <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+    Your presence means more than words can express. This book is a reflection of grace, resilience, and the journey that has shaped my story. I hope these pages encourage and inspire you in your own journey.
+  </p>
+
+  {/* Author Signature */}
+  <p className="font-semibold">— Komi Olumuyiwa</p>
+  <p className="italic text-gray-600">Author, The Many Colors of a Woman’s Story</p>
+
+  {/* Stars */}
+  <span className="text-[#C0840B80]"><IoIosStar /></span ><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span>
+</section>
+<section className="w-full bg-[#1a1a1a] py-12 px-[10%] text-center text-white">
+  <h2 className="text-3xl font-bold mb-4">SHARE YOUR HEART</h2>
+  <p className="text-gray-300 mb-8">
+    Leave A Message For Kemi. Your words of encouragement and well wishes mean a lot.
+  </p>
+
+  <form className="max-w-lg mx-auto space-y-6">
+    {/* Name Input */}
+    <div>
+      <label htmlFor="name" className="block text-left mb-2">Your Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Enter your name..."
+        className="w-full px-4 py-2 rounded border border-gray-600 bg-[#2a2a2a] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    {/* Message Input */}
+    <div>
+      <label htmlFor="message" className="block text-left mb-2">Your Message</label>
+      <textarea
+        id="message"
+        placeholder="Share your encouragement, well wishes or special memory..."
+        rows={4}
+        className="w-full px-4 py-2 rounded border border-gray-600 bg-[#2a2a2a] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded"
+    >
+      Start Editing
+    </button>
+  </form>
+</section>
 
 
     </main>
