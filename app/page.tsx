@@ -49,7 +49,7 @@ export default function Home() {
         <button className="bg-[#260406] flex gap-4 text-white px-7 py-4 rounded">
         <span><FaDownload /></span> <span>Request A free hard Copy</span>
         </button>
-        <button className="bg-[#E6E6E6] flex gap-4  text-[#260406] px-7 py-4 rounded">
+        <button className="bg-[#E6E6E6] flex ietms-center gap-4  text-[#260406] px-7 py-4 rounded">
         <span><MdQrCodeScanner /></span> <span>Scan QR for free soft copy</span>
         </button>
        
