@@ -2,7 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaDownload } from "react-icons/fa6";
 import { HiOutlineBookOpen } from "react-icons/hi2";
+import { Dancing_Script } from "next/font/google"
+import {Fraunces} from "next/font/google"
+import { IoIosStar } from "react-icons/io";
+const dancing = Dancing_Script({ subsets: ["latin"], weight: ["400", "700"] });
+const fruances = Fraunces({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"], // choose weights you need
+});
 export default function Home() {
+
   return (
     <>
     <header className="bg-[#F9F5EE] flex items-center px-8 py-4 justify-between ">
@@ -12,10 +21,16 @@ export default function Home() {
         <Link href="#about">Message</Link>
         
         </nav>  
-      <button className="flex items-center gap-3 bg-[#260406] mr-20  rounded text-white px-4 py-2 hover:bg-[#260406] "> <span><FaDownload /></span> <span>Download Ebook</span></button>
+      <button className= "flex items-center gap-3 bg-[#260406] mr-20  rounded text-white px-4 py-2 hover:bg-[#260406] "> <span><FaDownload /></span> <span >Download Ebook</span></button>
       </header>
-      <main className="flex flex-col items-center p-8">
-      <h1 className="text-4xl "><span className="text-[#0F172A] font-black">NEW DAWN,</span> <span className="text-[#C0840B] font-black" >SAME FIRE</span></h1>
+      <main className="flex flex-col items-center ">
+      <div className="flex items-center gap-3 bg-white px-4 py-2 rounded shadow">
+      <span className={`${dancing.className} text-green-600 italic font-dancing`}>
+        Exclusive Access
+      </span>
+      <span className="text-[#C0840B80]"><IoIosStar /></span ><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span>
+    </div>
+      <h1 className={fruances.className}><span className="text-[#0F172A] text-4xl font-black">NEW DAWN,</span> <span className="text-[#C0840B] text-4xl font-black" >SAME FIRE</span></h1>
       <p className="mt-2 text-lg">A journey of unfiltered grace</p>
       <p className="mt-4">Thank you for being part of this special celebration. As a token of appreciation, please enjoy this complimentary copy of New Dawn, Same Fire.</p>
 
@@ -30,23 +45,23 @@ export default function Home() {
       </div>
       <div className=" relative w-full h-[200vh]">
       <Image
-        src="/kemi.png"
+        src="/kemiolumuyiwa.png"
         alt="New Dawn, Same Fire"
-        className="mt-8 shadow-lg object-cover" fill priority
+        className="mt-8 shadow-lg object-cover object-top" fill priority
       />
 </div>
-      <div className="mt-10 grid grid-cols-3 gap-6 text-center">
+      <div className="w-full pt-7 bg-[#260406] p-7 px-[10%] grid grid-cols-3 gap-6 text-center">
         <div>
-          <h2 className="text-2xl font-bold">5K+</h2>
-          <p>Quotes Inspired</p>
+          <h2 className="text-2xl font-bold text-white">5K+</h2>
+          <p className="text-white">Quotes Inspired</p>
         </div>
         <div>
-          <h2 className="text-2xl font-bold">10K+</h2>
-          <p>Downloads</p>
+          <h2 className="text-2xl font-bold text-white">10K+</h2>
+          <p className="text-white">Downloads</p>
         </div>
         <div>
-          <h2 className="text-2xl font-bold">5K+</h2>
-          <p>Shares</p>
+          <h2 className="text-2xl font-bold text-white">5K+</h2>
+          <p className="text-white">Shares</p>
         </div>
       </div>
     </main>
