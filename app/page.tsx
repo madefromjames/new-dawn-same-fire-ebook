@@ -117,21 +117,42 @@ export default function Home() {
             </div>
 
             <div className={`${fruances.className} max-w-full text-[#555555]`}>
-              <ul className="grid w-full grid-cols-1 gap-4 text-[#260406] md:grid-cols-2 pb-[15px]">
+              <ul className="grid w-full grid-cols-2 gap-4 text-[#260406]  pb-[15px]">
                 <li className="rounded bg-[#F9F5EE] pl-4 pr-4 text-left md:pl-6 md:pr-8">
                   <div className="bg-[#C0840B] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0 my-[15px]">
                     <GiOpenBook className="text-white text-xl" />
-                  </div><strong className="block text-2xl pb-[15px] md:text-3xl">136+ Pages</strong><span className="text-[#555555] px-2">of inspiration</span>
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center pb-[15px]">
+                    <strong className="block text-2xl md:pb-[15px] md:text-3xl">136+ Pages</strong>
+                    <span className={`${sora.className} text-[#555555]`}>of inspiration</span>
+                  </div>
+                </li>
+                <li className="rounded bg-[#F9F5EE] pl-4 pr-4 text-left md:pl-6 md:pr-8">
+                  <div className="bg-[#C0840B] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0 my-[15px]">
+                    <GiSelfLove className="text-white text-xl" />
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center pb-[15px]">
+                    <strong className="block text-2xl md:pb-[15px] md:text-3xl">Personal Memoir</strong>
+                    <span className={`${sora.className} text-[#555555]`}>(a story of grace)</span>
+                  </div>
+                </li>
+                <li className="rounded bg-[#F9F5EE] pl-4 pr-4 text-left md:pl-6 md:pr-8">
+                  <div className="bg-[#C0840B] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0 my-[15px]">
+                    <BsStars className="text-white text-xl" />
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center pb-[15px]">
+                    <strong className="text-2xl md:pb-[15px]  md:text-3xl">Personal Stories</strong>
+                    <span className={`${sora.className} text-[#555555]`}>(real & raw)</span>
+                  </div>
                 </li>
                 <li className="rounded bg-[#F9F5EE] pl-4 pr-4 text-left md:pl-6 md:pr-8"><div className="bg-[#C0840B] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0 my-[15px]">
-                  <GiSelfLove className="text-white text-xl" />
-                </div><strong className="text-2xl md:text-3xl">Personal Memoir</strong> <span className="text-[#555555] px-2">(a story of grace)</span></li>
-                <li className="rounded bg-[#F9F5EE] pl-4 pr-4 text-left md:pl-6 md:pr-8"><div className="bg-[#C0840B] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0 my-[15px]">
-                  <BsStars className="text-white text-xl" />
-                </div><strong className="text-2xl md:text-3xl">Personal Stories</strong> <span className="text-[#555555] px-2">(real & raw)</span></li>
-                <li className="rounded bg-[#F9F5EE] pl-4 pr-4 text-left md:pl-6 md:pr-8"><div className="bg-[#C0840B] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0 my-[15px]">
                   <FiSunset className="text-white text-xl" />
-                </div><strong className="text-2xl md:text-3xl">Lesson On Renewal</strong> <span className="text-[#555555] px-2">(for every season)</span></li>
+                </div>
+                  <div className="flex flex-col md:flex-row md:items-center pb-[15px]">
+                    <strong className="text-2xl md:pb-[15px] md:text-3xl">Lesson On Renewal</strong>
+                    <span className={`${sora.className} text-[#555555]`}>(for every season)</span>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
