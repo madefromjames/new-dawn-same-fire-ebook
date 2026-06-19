@@ -83,7 +83,7 @@ export default function Home() {
             <h2 className={`${sora.className} text-xl font-normal text-center mb-6 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
             <div className="w-full px-4 md:px-[10%]">
               <h3 className={`${fruances.className} text-[36px] leading-[54px] mb-4`}>
-                <i>What Is <span className="italic">New Dawn, Same Fire</span> About?</i>
+                <i>What Is <span>New Dawn, Same Fire</span> About?</i>
               </h3>
               <p className={`${sora.className} mb-8 max-w-full text-[#555555]`}>
                 A heartfelt journey through seasons of change, rediscovery, and unwavering faith. This memoir explores the beauty of beginning again while keeping the fire of purpose alive.
@@ -147,7 +147,7 @@ export default function Home() {
                 <GiOpenBook className="text-white text-xl" />
               </div>
               <h3 className={`${fruances.className} text-xl mb-4`}>Request A Free Hard Copy</h3>
-                <p className={`${sora.className} text-lg mb-4 whitespace-nowrap text-[#555555]`}>Request a keepsake edition by <span className="text-[#240406]">Kemi Olumuyiwa.</span></p>
+              <p className={`${sora.className} text-lg mb-4 whitespace-nowrap text-[#555555]`}>Request a keepsake edition by <span className="text-[#240406]">Kemi Olumuyiwa.</span></p>
               <ul className="text-gray-600 mb-6">
                 <li className="flex items-center gap-x-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Premium Print</span></li>
                 <li className="flex items-center gap-x-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
@@ -160,34 +160,38 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="w-full bg-white py-12 px-[10%] text-center">
-          {/* Author Image */}
+        <section className="w-full bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+          <div className="mx-auto flex max-w-5xl flex-col items-center">
+            {/* Author Image */}
 
+            {/* Message */}
+            <h2 className={`${sora.className} text-xl font-normal text-center mb-6 text-[#1B5E35]`}>OTHER BOOKS</h2>
+            <div className="w-full px-4 md:px-[10%]">
+              <h3 className={`${fruances.className} text-[36px] leading-[54px] mb-4`}><i>More from kemi olumuyiwa</i> </h3>
+              <p className={` ${sora.className} text-[#555555] max-w-2xl mx-auto`}>
+                A collection of books that continue to inspire growth, purpose and meaningful living.
+              </p>
+            </div>
 
-          {/* Message */}
-          <h2 className="text-3xl text-[#1B5E35] font-bold mb-4">OTHER BOOKS</h2>
-          <h3 className={`${fruances.className} font-bold`}>More from kemi olumuyiwa</h3>
-          <p className={` ${sora.className}text-[#555555] mb-6 max-w-2xl mx-auto`}>
-            A collection of books that continue to inspire growth, purpose and meaningful living.
-          </p>
+            {/* Author Signature */}
+            {/* <p className="font-semibold">— Komi Olumuyiwa</p> */}
+            {/* <p className="italic text-gray-600">Author, The Many Colors of a Woman’s Story</p> */}
 
-          {/* Author Signature */}
-          <p className="font-semibold">— Komi Olumuyiwa</p>
-          <p className="italic text-gray-600">Author, The Many Colors of a Woman’s Story</p>
+            {/* Stars */}
+            {/* <span className="text-[#C0840B80]"><IoIosStar /></span ><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span> */}
 
-          {/* Stars */}
-          <span className="text-[#C0840B80]"><IoIosStar /></span ><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span>
+          </div>
         </section>
 
         <section>
-          <div>
+          <div className="bg-[#F9F5EE]">
             <Image
               src="/kemibook.png"
               alt="New Dawn, Same Fire"
               className="mt-8 shadow-lg " width={300} height={400}
             />
           </div>
-          <div>
+          <div className="bg-[#F9F5EE]">
             <Image
               src="/olumuyiwa.png"
               alt="New Dawn, Same Fire"
