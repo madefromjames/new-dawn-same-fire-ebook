@@ -27,7 +27,7 @@ const fruances = Fraunces({
 });
 
 export default function Home() {
-  const pdfUrl = "ebook.pdf"
+  const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
   return (
     <>
       <header className={`bg-[#F9F5EE] ${fruances.className} flex items-center justify-between px-4 py-4 md:hidden`}>
