@@ -87,28 +87,28 @@ export default function Home() {
             priority
           />
         </div>
-        <section className="w-full bg-[#260406] px-4 py-10 text-center md:px-[25%]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <section className="w-full bg-[#260406] py-4 px-4 md:py-10 text-center md:px-[25%]">
+          <div className="grid grid-cols-3 gap-6 md:grid-cols-3">
             <div>
-              <h2 className={`${fruances.className} text-[32px] leading-[40px] font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>5K+</h2>
-              <p className={`${sora.className} text-sm leading-6 text-gray-300 md:text-[18px] md:leading-[27px]`}>Quotes Inspired</p>
+              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>5K+</h2>
+              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Quotes Inspired</p>
             </div>
             <div>
-              <h2 className={`${fruances.className} text-[32px] leading-[40px] font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>10K+</h2>
-              <p className={`${sora.className} text-sm leading-6 text-gray-300 md:text-[18px] md:leading-[27px]`}>Downloads</p>
+              <h2 className={`${fruances.className} text-2xl  font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>10K+</h2>
+              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Downloads</p>
             </div>
             <div>
-              <h2 className={`${fruances.className} text-[32px] leading-[40px] font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>5K+</h2>
-              <p className={`${sora.className} text-sm leading-6 text-gray-300 md:text-[18px] md:leading-[27px]`}>Shares</p>
+              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>5K+</h2>
+              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Shares</p>
             </div>
           </div>
         </section>
 
         <section className="w-full bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
-            <h2 className={`${sora.className} text-xl font-normal text-center mb-6 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
             <div className="w-full px-0 md:px-[10%]">
-              <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 md:text-[36px] md:leading-[54px]`}>
+              <h3 className={`${fruances.className} text-[18px] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>
                 <i>What Is <span>New Dawn, Same Fire</span> About?</i>
               </h3>
               <p className={`${sora.className} mx-auto mb-8 max-w-2xl text-sm leading-6 text-[#555555] md:text-base`}>
@@ -194,7 +194,7 @@ export default function Home() {
             {/* Message */}
             <h2 className={`${sora.className} text-xl font-normal text-center mb-6 text-[#1B5E35]`}>OTHER BOOKS</h2>
             <div className="w-full px-0 md:px-[10%]">
-              <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 md:text-[36px] md:leading-[54px]`}><i>More from kemi olumuyiwa</i> </h3>
+              <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 md:text-[36px] md:leading-[54px]`}><i>More from Kemi Olumuyiwa</i> </h3>
               <p className={` ${sora.className} mx-auto max-w-2xl text-sm leading-6 text-[#555555] md:text-base`}>
                 A collection of books that continue to inspire growth, purpose and meaningful living.
               </p>
