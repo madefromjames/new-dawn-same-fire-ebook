@@ -124,33 +124,38 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Complimentary Copy */}
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6">
+            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full">
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
                 <RxDownload className="text-white text-xl" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Download Your free Digital Copy</h3>
-              <p className="text-lg  mb-4">Scan the QR code to instantly access your digital copy</p>
-              <QRCode
-                value={pdfUrl}
-                size={180}
-              />
+              <h3 className={`${fruances.className} text-xl mb-4`}>Download Your free Digital Copy</h3>
+              <p className={`${sora.className} text-lg mb-4 text-[#555555]`}>Scan the QR code to instantly access your digital copy</p>
+              <div className="mx-auto flex h-[270px] w-[283px] items-center justify-center rounded-[8px] border-[3px] border-[#240406] bg-white">
+                <QRCode
+                  value={pdfUrl}
+                  size={220}
+                  fgColor="#240406"
+                  bgColor="#FFFFFF"
+                />
+              </div>
 
             </div>
 
             {/* Signed Hard Copy */}
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6">
+            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full">
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
                 <GiOpenBook className="text-white text-xl" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">Request A Free Hard Copy</h3>
-              <p className="text-lg mb-4">Request a keepsake edition  by Kemi Olumuyiwa.</p>
+              <h3 className={`${fruances.className} text-xl mb-4`}>Request A Free Hard Copy</h3>
+                <p className={`${sora.className} text-lg mb-4 whitespace-nowrap text-[#555555]`}>Request a keepsake edition by <span className="text-[#240406]">Kemi Olumuyiwa.</span></p>
               <ul className="text-gray-600 mb-6">
                 <li className="flex items-center gap-x-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Premium Print</span></li>
                 <li className="flex items-center gap-x-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
                 <li className="flex items-center gap-x-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
               </ul>
-              <button className="bg-[#260406] flex gap-4 items-center  text-white px-7 py-4 rounded">
-                <span><GiOpenBook /></span> <span>Request A free hard Copy</span>
+              <button className="mt-auto flex h-[64px] w-full max-w-[482px] items-center justify-center gap-[10px] rounded-[4px] bg-[#260406] px-[99px] py-[20px] text-white">
+                <span><GiOpenBook /></span>
+                <span>Request A free hard Copy</span>
               </button>
             </div>
           </div>
