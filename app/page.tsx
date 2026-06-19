@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <header className={`bg-[#F9F5EE] ${fruances.className} flex items-center justify-between px-4 py-4 md:hidden`}>
-        <span className="text-sm font-bold text-[#280506]">New Dawn, Same fire</span>
+        <span className="text-xl font-bold text-[#280506]">New Dawn, Same fire</span>
         <details className="relative">
           <summary className="list-none cursor-pointer rounded-md p-2 text-[#0F172A] [&::-webkit-details-marker]:hidden">
             <FaBars className="text-xl" />
