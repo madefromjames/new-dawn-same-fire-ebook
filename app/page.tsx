@@ -281,7 +281,7 @@ export default function Home() {
             <Image
               src="/kemib.jpg"
               alt="Kemi Olumuyiwa"
-              className="rounded-xl object-cover object-top w-full h-full"
+              className="rounded-xl object-cover object-top w-full h-full scale-110"
               width={579} height={418}
             />
           </div>
