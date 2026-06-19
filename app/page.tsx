@@ -12,7 +12,11 @@ import { BsStars } from "react-icons/bs";
 import { FiSunset } from "react-icons/fi";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import QRCode from "react-qr-code";
+import { GrAggregate } from "react-icons/gr";
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
+import { MdKeyboardVoice } from "react-icons/md";
+import { FaHandHoldingWater } from "react-icons/fa";
+import { MdGroups2 } from "react-icons/md";
 const dancing = Dancing_Script({ subsets: ["latin"], weight: ["400", "700"] });
 const sora = Sora({ subsets: ["latin"], weight: ["400", "700"] });
 const fruances = Fraunces({
@@ -227,36 +231,50 @@ export default function Home() {
 
         <section className="flex flex-col md:flex-row items-center gap-10 p-10 bg-pink-50 rounded-lg shadow-md">
           {/* Author Text */}
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">About Author</h2>
+          <div className="w-1/2 ml-8">
+            <h2 className={` ${sora.className}text-3xl items-start font-bold text-[#1B5E35] mb-4`}>ABOUT AUTHOR</h2>
+            <h2 className={`${fruances.className} italic text-3xl items-start font-bold text-[#260406] mb-4`}>Meet Kemi Olumuyiwa</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Kemi Olumuyiwa is an author, mentor, leader, speaker, and advocate for
-              grace, resilience, and personal transformation. Through her journey,
-              she has inspired many to embrace change, rediscover purpose, and keep
-              the fire within burning.
+            author, mentor, leader, speaker, and advocate for grace, resilience, and personal transformation.
+Through her journey, she has inspired many to embrace change, rediscover purpose, and keep the fire within burning.
+
             </p>
             <p className="text-gray-600 italic mb-6">
-              “New dawn, same fire” is her testimony that no matter the season,
-              grace always makes a way.
+            New Dawn, Same Fire is her testimony that no matter the season, grace always makes a way..
             </p>
 
             {/* Icons Section */}
             <div className="flex flex-wrap gap-4 text-sm font-medium text-gray-800">
-              <span className="px-3 py-1 bg-white rounded shadow">Author</span>
-              <span className="px-3 py-1 bg-white rounded shadow">Speaker</span>
-              <span className="px-3 py-1 bg-white rounded shadow">Mentor</span>
-              <span className="px-3 py-1 bg-white rounded shadow">Leader</span>
-              <span className="px-3 py-1 bg-white rounded shadow">Community Impact</span>
+              
+              <span className="flex flex-col items-center"><div className="bg-[#C0840B1A] px-3 py-1  rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <GiOpenBook className="text-[#C0840B] text-xl" /></div>
+              <p>Author</p></span>
+              <span className="flex flex-col items-center"><div className="bg-[#C0840B1A] px-3 py-1  rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <MdKeyboardVoice className="text-[#C0840B] text-xl" /></div>
+              <p>Speaker</p></span>
+              <span className="flex flex-col items-center"><div className="bg-[#C0840B1A] px-3 py-1  rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <MdGroups2 className="text-[#C0840B] text-xl" /></div>
+              <p>Mentor</p></span>
+              
+              <span className="flex flex-col items-center"><div className="bg-[#C0840B1A] px-3 py-1  rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <GrAggregate className="text-[#C0840B] text-xl" /></div>
+              <p>Leader</p></span>
+              <span className="flex flex-col items-center"><div className="bg-[#C0840B1A] px-3 py-1  rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                <FaHandHoldingWater className="text-[#C0840B] text-xl" /></div>
+              <p>Community Impact</p></span>
+
             </div>
           </div>
           {/* Author Image */}
-          <div className="">
+          <div className="w-1/2">
+          <div className="w-[400px] h-[300px] overflow-hidden rounded-xl">
             <Image
               src="/kemib.jpg" // place your image in public/images
               alt="Kemi Olumuyiwa"
-              className="rounded-lg object-cover"
-              width={500} height={300}
+              className="rounded-xl object-cover object-center"
+              width={579} height={418}
             />
+          </div>
           </div>
 
           {/* Author Text */}
@@ -264,42 +282,47 @@ export default function Home() {
         </section>
 
       </main>
-      <footer className="bg-red-900 text-white p-10">
-        <div className="flex flex-col md:flex-row justify-between gap-10">
+      <footer className="bg-[#240406] text-white p-10">
+        <div className="flex flex-col md:flex-row items-start gap-x-60 justify-between">
 
           {/* Left Section */}
           <div className="max-w-md">
-            <h3 className="text-lg font-bold mb-2">Moto Foundation</h3>
+           
             <p className="text-sm mb-4">
               Moto Foundation (Mutajero Oyekan; Teniola Olumuyiwa (Moto) Foundation)
               is the charity outlet of Mutajero Ventures Ltd, incorporated in April 1993.
             </p>
+            <div className="flex gap-x-3 ">
             <p className="text-sm mb-2">Click any of these links to follow us:</p>
             <div className="flex gap-4 text-2xl">
               <a href="https://instagram.com" aria-label="Instagram"><FaInstagram /></a>
               <a href="https://facebook.com" aria-label="Facebook"><FaFacebook /></a>
               <a href="https://x.com" aria-label="X"><FaXTwitter /></a>
             </div>
+            </div>
           </div>
 
+{/* middles section */}
+<nav className="flex flex-col gap-5 flex-1 justify-center ">
+          <Link href="#about" className="text-[#fffff]">About</Link>
+          <Link href="#about" className="text-[#ffffff]">What's Inside</Link>
+          <Link href="#about" className="text-[#ffffff]">Message</Link>
+        </nav>
           {/* Right Section */}
           <div className="flex flex-col items-center">
-            {/* <Image
-            src="/images/qr-code.png"
-            alt="QR Code"
-            width={120}
-            height={120}
-            className="mb-2"
-          /> */}
-            <p className="text-sm">Scan the QR to get your free copy here.</p>
+          <p className="text-sm">Scan the QR to get your free copy here.</p>
+          <QRCode
+                  value={pdfUrl}
+                  size={220}
+                  fgColor="#240406"
+                  bgColor="#FFFFFF"
+                />
+            
           </div>
         </div>
 
         {/* About Links */}
-        <div className="mt-8 flex gap-6 text-sm">
-          <a href="/about/inside">What's inside</a>
-          <a href="/about/message">Message</a>
-        </div>
+      
 
         {/* Bottom Legal Section */}
         <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row justify-between text-xs">
