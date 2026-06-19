@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RxDownload } from "react-icons/rx";
-import { HiOutlineBookOpen } from "react-icons/hi2";
 import { Dancing_Script } from "next/font/google"
 import { Fraunces } from "next/font/google"
 import { Sora } from "next/font/google"
