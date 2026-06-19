@@ -158,11 +158,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full bg-[#240406] px-4 py-12 md:px-[10%] ">
+        <section className="w-full bg-[#240406] px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
-            <h2 className={`${sora.className} text-xl font-normal text-center mb-6 text-[#A7F7C6]`}>YOUR EXCLUSIVE GIFT</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#7CD9A0]`}>YOUR EXCLUSIVE GIFT</h2>
             <div className="w-full px-0 text-center md:px-[10%]">
-              <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 text-[#E6E6E6] md:text-[36px] md:leading-[54px]`}>
+              <h3 className={`${fruances.className} text-[18px] leading-[38px] md:mb-4 md:text-[36px] text-[#E6E6E6] md:leading-[54px]`}>
                 <i>An Exclusive Gift For Our Distinguished Guests.</i>
               </h3>
               <p className={`${sora.className} mx-auto mb-8 max-w-2xl text-sm leading-6 text-[#E6E6E6] md:text-base`}>Choose how you’d like to experience the book.</p>
@@ -175,7 +175,7 @@ export default function Home() {
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
                 <RxDownload className="text-white text-xl" />
               </div>
-              <h3 className={`${fruances.className} text-lg mb-4 md:text-xl`}>Download Your free Digital Copy</h3>
+              <h3 className={`${fruances.className} text-lg my-4 md:text-xl`}>Download Your free Digital Copy</h3>
               <p className={`${sora.className} text-base mb-4 text-[#555555] md:text-lg`}>Scan the QR code to instantly access your digital copy</p>
               <div className="mx-auto flex aspect-[283/270] w-full max-w-[283px] items-center justify-center rounded-[8px] border-[3px] border-[#240406] bg-white px-[18px] py-[14px] md:px-[28px]">
                 <QRCode
@@ -193,29 +193,29 @@ export default function Home() {
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
                 <GiOpenBook className="text-white text-xl" />
               </div>
-              <h3 className={`${fruances.className} text-lg mb-4 md:text-xl`}>Request A Free Hard Copy</h3>
+              <h3 className={`${fruances.className} text-lg my-4 md:text-xl`}>Request A Free Hard Copy</h3>
               <p className={`${sora.className} mb-4 text-base leading-6 text-[#555555] md:text-lg`}>Request a keepsake edition by <span className="whitespace-nowrap text-[#240406]">Kemi Olumuyiwa.</span></p>
               <ul className="text-gray-600 mb-6">
-                <li className="flex items-center gap-x-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Premium Print</span></li>
-                <li className="flex items-center gap-x-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
-                <li className="flex items-center gap-x-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
+                <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Premium Print</span></li>
+                <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
+                <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
               </ul>
               <button className="mt-auto flex h-[56px] w-full items-center justify-center gap-[10px] rounded-[4px] bg-[#260406] px-6 py-3 text-white md:h-[64px] md:max-w-[482px] md:px-[99px] md:py-[20px]">
-                <span><GiOpenBook /></span>
+                <span className="text-xl"><GiOpenBook /></span>
                 <span>Request A free hard Copy</span>
               </button>
             </div>
           </div>
 
         </section>
-        <section className="w-full bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section className="w-full bg-white px-15 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
             {/* Message */}
-            <h2 className={`${sora.className} text-xl font-normal text-center mb-6 text-[#1B5E35]`}>OTHER BOOKS</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>OTHER BOOKS</h2>
             <div className="w-full px-0 md:px-[10%]">
-              <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 md:text-[36px] md:leading-[54px]`}><i>More from Kemi Olumuyiwa</i> </h3>
+              <h3 className={`${fruances.className} text-[18px] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}><i>More from Kemi Olumuyiwa</i> </h3>
               <p className={` ${sora.className} mx-auto max-w-2xl text-sm leading-6 text-[#555555] md:text-base`}>
                 A collection of books that continue to inspire growth, purpose and meaningful living.
               </p>
@@ -240,7 +240,7 @@ export default function Home() {
                 height={400}
               />
               <div className="px-0 text-center md:px-[10%]">
-                <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 md:text-[36px] md:leading-[54px]`}><i>Lifted</i> </h3>
+                <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-[36px] md:leading-[54px]`}>Lifted </h3>
                 <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
                   Faith-filled encouragement to rise above life’s challenges
                 </p>
@@ -255,7 +255,7 @@ export default function Home() {
                 height={400}
               />
               <div className="justify-center px-0 text-center md:px-[10%]">
-                <h3 className={`${fruances.className} text-[28px] leading-[38px] mb-4 md:text-[36px] md:leading-[54px]`}><i>Married to My Role Model</i> </h3>
+                <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-[36px] md:leading-[54px]`}>Married to My Role Model</h3>
                 <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
                   Faith-filled encouragement to rise above life’s challenges
                 </p>
