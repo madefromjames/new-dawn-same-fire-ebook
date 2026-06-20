@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState,  type FormEvent } from "react";
+import {useEffect, useRef} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/router'
@@ -31,11 +32,46 @@ const fruances = Fraunces({
   weight: ["300", "400", "600"], // include 600 for SemiBold
   style: ["normal", "italic"]
 });
+function useCountUp(target: number, duration: number = 1500, start: boolean = false) {
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [start, target, duration]);
+
+  return count;
+}
 export default function Home() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
+  const statsRef = useRef<HTMLDivElement>(null);
+const [hasAnimated, setHasAnimated] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !hasAnimated) {
+        setHasAnimated(true);
+      }
+    },
+    { threshold: 0.4 }
+  );
+  if (statsRef.current) observer.observe(statsRef.current);
+  return () => observer.disconnect();
+}, [hasAnimated]);
+
+const downloads = useCountUp(15020, 1500, hasAnimated);
+const readers   = useCountUp(20020, 1500, hasAnimated);
+const reviews   = useCountUp(16020, 1500, hasAnimated);
   const [expanded, setExpanded] = useState(false);
   const openRequestModal = () => setIsRequestModalOpen(true);
   const closeRequestModal = () => setIsRequestModalOpen(false);
@@ -117,15 +153,15 @@ export default function Home() {
         <section className="w-full bg-[#260406] py-4 px-4 text-center md:py-10 md:px-[25%]">
           <div className="grid grid-cols-3 gap-6 sm:grid-cols-3">
             <div>
-              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>15K+</h2>
+              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${downloads.toLocaleString()}+` : "15K+"}</h2>
               <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Downloads</p>
             </div>
             <div>
-              <h2 className={`${fruances.className} text-2xl  font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>20K+</h2>
+              <h2 className={`${fruances.className} text-2xl  font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${readers.toLocaleString()}+` : "20K+"}</h2>
               <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Readers</p>
             </div>
             <div>
-              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>16K+</h2>
+              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFFFFF] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${reviews.toLocaleString()}+` : "16K+"}</h2>
               <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>5-star review</p>
             </div>
           </div>
