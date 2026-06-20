@@ -174,7 +174,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section className="w-full bg-[#F9F5EE] px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
@@ -199,9 +199,11 @@ export default function Home() {
                 height={600}
               />
             </div>
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 items-center flex flex-col h-full">
-              <div className="justify-center px-0 text-center md:px-[10%]">
+            <div className="bg-[#FFFFFF] shadow-lg rounded-lg p-6 gap-4 items-center flex flex-col h-full">
+              <div className="bg-[#F5F5F5] justify-center rounded-xl px-0 text-center md:px-[10%]">
                 <h3 className={`${fruances.className} text-sm leading-[38px] font-bold md:text-[36px] md:leading-[54px]`}>"A conversation with a soul that refused to stay down."</h3>
+              </div>
+              <div className="bg-[#F5F5F5] rounded-xl">
                 <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
                   New Dawn, Same Fire: A Journey of Unfiltered Grace takes you through the world of corporate boardrooms and the quiet, heavy moments of a home held together by faith and resolve.
                   On its pages you feel the weight of every pillar that stood firm and the courage behind every support that changed it all. At the very heart of this journey is a celebration of the woman who started it all: the author's mother. This book beautifully honors the woman who... didn't just raise a daughter, but mentored a visionary, passing down the sharp business instincts and the moral gauge that define her today. It captures that selfless season when, while the author served on official duty in Abuja, her mother stayed behind as a steady support.
