@@ -250,7 +250,6 @@ export default function Home() {
               <p className={`${sora.className} mx-auto mb-8 max-w-2xl text-sm leading-6 text-[#E6E6E6] md:text-base`}>Choose how you’d like to experience the book.</p>
             </div>
           </div>
-
           <div className="grid md:grid-cols-2 gap-8">
             {/* Complimentary Copy */}
             <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full text-left">
