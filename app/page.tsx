@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { RxDownload } from "react-icons/rx";
 import { Dancing_Script } from "next/font/google"
 import { Fraunces } from "next/font/google"
@@ -36,7 +36,6 @@ export default function Home() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
-  const router = useRouter();
   const [expanded, setExpanded] = useState(false);
   const openRequestModal = () => setIsRequestModalOpen(true);
   const closeRequestModal = () => setIsRequestModalOpen(false);
@@ -59,9 +58,16 @@ export default function Home() {
               <Link href="#about">What's Inside</Link>
               <Link href="#about">Message</Link>
             </nav>
-            <button onClick={() => router.push('/https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf')} className="bg-[#C0840B] flex w-full items-center justify-center rounded py-3 my-6 gap-4 text-white md:w-auto md:px-7">
-              <span><RxDownload /></span><span className="text-[#FFFFFF]">Download eBook</span>
-            </button>
+            <a
+              href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#C0840B] flex w-full items-center justify-center rounded py-3 my-6 gap-4 text-white md:w-auto md:px-7"
+            >
+              <RxDownload />
+              <span>Download eBook</span>
+            </a>
+
           </div>
         </details>
       </header>
@@ -72,9 +78,9 @@ export default function Home() {
           <Link href="#about" className="text-[#555555]">What's Inside</Link>
           <Link href="#about" className="text-[#555555]">Message</Link>
         </nav>
-        <button className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-3 text-white md:mr-16 md:w-auto md:px-7 md:py-4">
+        <a href="#qr-section" className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-3 text-white md:mr-16 md:w-auto md:px-7 md:py-4">
           <span><MdQrCodeScanner /></span><span className="text-[#FFFFFF]">Scan QR for free soft copy</span>
-        </button>
+        </a>
       </header>
 
       <main className="flex flex-col items-center overflow-x-hidden">
@@ -92,9 +98,9 @@ export default function Home() {
         </div>
 
         <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} md:w-auto md:flex-row md:px-0`}>
-          <button className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
+          <a href="#qr-section" className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><MdQrCodeScanner /></span><span className="text-[#FFFFFF]">Scan QR for free soft copy</span>
-          </button>
+          </a>
           <button type="button" onClick={openRequestModal} className="bg-[#260406] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><GiOpenBook /></span> <span>Request A free hard Copy</span>
           </button>
@@ -212,7 +218,7 @@ export default function Home() {
               <div className="bg-[#F5F5F5] rounded-xl p-3 text-start">
                 <p className={` ${sora.className} text-sm leading-relaxed text-[#555555] md:text-base`}>
                   New Dawn, Same Fire: A Journey of Unfiltered Grace takes you through the world of corporate boardrooms and the quiet, heavy moments of a home held together by faith and resolve.
-                  On its pages you feel the weight of every pillar that stood firm and the courage behind every support that changed it all. At the very heart of this journey is a celebration of the woman who started it all: the author's mother. This book beautifully 
+                  On its pages you feel the weight of every pillar that stood firm and the courage behind every support that changed it all. At the very heart of this journey is a celebration of the woman who started it all: the author's mother. This book beautifully
                   {!expanded && "..."}
                   {expanded && (
                     <>
@@ -253,7 +259,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div id="qr-section" className="grid md:grid-cols-2 gap-8">
             {/* Complimentary Copy */}
             <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full text-left">
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
