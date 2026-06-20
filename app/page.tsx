@@ -375,7 +375,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
                 height={400}
               />
               <div className="px-0 text-center md:px-[10%]">
-                <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-[36px] md:leading-[54px]`}>Married to My Role Model </h3>
+                <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-3xl md:leading-[54px]`}>Married to My Role Model </h3>
                 <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
                   Faith-filled encouragement to rise above life’s challenges
                 </p>
@@ -390,7 +390,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
                 height={400}
               />
               <div className="justify-center px-0 text-center md:px-[10%]">
-                <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-[36px] md:leading-[54px]`}>Lifted</h3>
+                <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-3xl md:leading-[54px]`}>Lifted</h3>
                 <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
                   Celebrating life, love and grace
                 </p>
@@ -402,7 +402,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
         <section>
         </section>
 
-        <section className="flex flex-col px-6  md:flex-row items-center   md:px-25 gap-10 p-10  bg-[#F9F5EE] rounded-2xl">
+        <section className="flex flex-col mb-10 px-10 md:flex-row items-center md:px-25 gap-10 p-10 bg-[#F9F5EE] rounded-2xl">
 
           {/* Headings - always first */}
           <div className="w-full text-center md:hidden">
@@ -472,7 +472,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
         </section>
 
       </main>
-      <footer className="bg-[#240406] text-white p-15">
+      <footer className="bg-[#240406] text-white p-15 mt-5">
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start md:gap-x-12 xl:gap-x-60">
 
           {/* Left Section */}
