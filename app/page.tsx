@@ -230,9 +230,9 @@ export default function Home() {
                 >
                   {expanded ? "Show Less" : "Read Full Review"}
                   {expanded ? (
-                    <FaChevronUp className="text-sm align-middle" />
+                    <FaChevronUp className="text-sm relative top-[2px]" />
                   ) : (
-                    <FaChevronDown className="text-sm align-bottom" />
+                    <FaChevronDown className="text-sm relative top-[2px]" />
                   )}
                 </button>
               </div>
