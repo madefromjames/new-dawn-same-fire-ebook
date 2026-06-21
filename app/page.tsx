@@ -5,7 +5,7 @@ import {useEffect, useRef} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/router'
-import { RxDownload } from "react-icons/rx";
+import { TbDownload } from "react-icons/tb";
 import { Dancing_Script } from "next/font/google"
 import { Fraunces } from "next/font/google"
 import { Sora } from "next/font/google"
@@ -91,8 +91,8 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
           <div className="absolute right-0 top-full z-20 mt-3 w-56 rounded-lg border border-[#E5E7EB] bg-white p-4 shadow-lg">
             <nav className="flex flex-col gap-3 text-sm text-[#555555]">
               <Link href="#about">About</Link>
-              <Link href="#what-inside">What's Inside</Link>
-              <Link href="#">Message</Link>
+              <Link href="#whats-inside">What's Inside</Link>
+              <Link href="#books">Books</Link>
             </nav>
             <a
               href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
@@ -100,7 +100,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
               rel="noopener noreferrer"
               className="bg-[#C0840B] flex w-full items-center justify-center rounded py-3 my-6 gap-4 text-white md:w-auto md:px-7"
             >
-              <RxDownload />
+              <TbDownload />
               <span>Download eBook</span>
             </a>
 
@@ -111,8 +111,8 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
       <header className={` hidden md:flex bg-[#F9F5EE] ${fruances.className} flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:px-8`}>
         <nav className="flex flex-wrap justify-center gap-4 md:flex-1 md:gap-5">
           <Link href="#about" className="text-[#555555]">About</Link>
-          <Link href="#" className="text-[#555555]">What's Inside</Link>
-          <Link href="#" className="text-[#555555]">Message</Link>
+          <Link href="#whats-inside" className="text-[#555555]">What's Inside</Link>
+          <Link href="#books" className="text-[#555555]">Books</Link>
         </nav>
         <a href="#qr-section" className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-3 text-white md:mr-16 md:w-auto md:px-7 md:py-4">
           <span><MdQrCodeScanner /></span><span className="text-[#FFFFFF]">Scan QR for free soft copy</span>
@@ -135,7 +135,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
 
         <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} md:w-auto md:flex-row md:px-0`}>
           <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
-            <span><RxDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
+            <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
           </a>
           <a href="#" onClick={openRequestModal} className="bg-[#260406] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white/90 md:w-auto md:px-7">
             <span><GiOpenBook /></span> <span>Request A free hard Copy</span>
@@ -221,7 +221,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
           </div>
         </section>
 
-        <section id="what-inside" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section id="whats-inside" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
@@ -308,7 +308,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
             {/* Complimentary Copy */}
             <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full text-left">
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
-                <RxDownload className="text-white text-xl" />
+                <TbDownload className="text-white text-xl" />
               </div>
               <h3 className={`${fruances.className} text-lg my-4 md:text-xl`}>Download Your free Digital Copy</h3>
               <p className={`${sora.className} text-base mb-4 text-[#555555] md:text-lg`}>Scan the QR code to instantly access your digital copy</p>
@@ -327,7 +327,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
                   <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
                 </ul>
                 <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7`}>
-                  <span><RxDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
+                  <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
                 </a>
               </div>
 
@@ -353,7 +353,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
           </div>
 
         </section>
-        <section className="w-full mb-10 bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section id="books" className="w-full mb-10 bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
@@ -506,8 +506,8 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
           <nav className={`${fruances.className} flex flex-col gap-3 flex-1 items-center text-center md:items-start md:text-left justify-center`}>
             <Link href="#home" className="text-[#E6E6E6]/60">Home</Link>
             <Link href="#about" className="text-[#E6E6E6]/60">About</Link>
-            <Link href="#about" className="text-[#E6E6E6]/60">What's Inside</Link>
-            <Link href="#about" className="text-[#E6E6E6]/60">Message</Link>
+            <Link href="#whats-inside" className="text-[#E6E6E6]/60">What's Inside</Link>
+            <Link href="#books" className="text-[#E6E6E6]/60">Books</Link>
           </nav>
 
           {/* Right Section */}
