@@ -275,7 +275,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
                 height={379}
               />
             </div>
-            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col md:col-span-2 items-center md:w-[625px] md:order-1 md:h-[385px] overflow-hidden" style={{ padding: "14px 19px 21px 20px", gap: "13px" }}>
+            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col md:col-span-2 items-center md:w-[625px] md:order-1  " style={{ padding: "14px 19px 21px 20px", gap: "13px" }}>
               <div className="bg-[#F5F5F5] w-full justify-center rounded-xl p-3 text-center md:px-[10%]">
                 <h3 className={`${fruances.className} italic text-sm font-bold md:text-xl`}>
                   "A conversation with a soul that refused to stay down."</h3>
