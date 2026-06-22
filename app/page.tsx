@@ -23,8 +23,10 @@ import QRCode from "react-qr-code";
 import { GrAggregate } from "react-icons/gr";
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
 import { MdKeyboardVoice } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
 import { FaHandHoldingWater } from "react-icons/fa";
 import { MdGroups2 } from "react-icons/md";
+
 const dancing = Dancing_Script({ subsets: ["latin"], weight: ["400", "700"] });
 const sora = Sora({ subsets: ["latin"], weight: ["400", "700"] });
 const fruances = Fraunces({
@@ -255,9 +257,9 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
                 height={600}
               />
             </div>
-            <div className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col items-center h-full space-y-3 md:order-1">
+            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col items-center h-full space-y-3 md:order-1">
               <div className="bg-[#F5F5F5] w-full justify-center rounded-xl p-3 text-center md:px-[10%]">
-                <h3 className={`${fruances.className} italic text-sm font-bold md:text-xl`}>
+                <h3 className={`${fruances.className} italic text-xs font-bold md:text-xl`}>
                   "A conversation with a soul that refused to stay down."</h3>
               </div>
               <div className="bg-[#F5F5F5] rounded-xl p-3 text-start flex-1">
@@ -278,7 +280,13 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
                 </p>
                 {/* Toggle Link */}
                 <button
-                  onClick={() => setExpanded(!expanded)}
+                  onClick={() => { setExpanded(!expanded);
+                    if (expanded) {
+                      // when collapsing, scroll back to the section top
+                      const section = document.getElementById("story");
+                      section?.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   className={` ${sora.className} mt-4 flex gap-2 text-[#C0840B] text-sm hover:underline font-medium hover:underline`}
                 >
                   {expanded ? "Show Less" : "Read Full Review"}
@@ -561,7 +569,7 @@ const reviews   = useCountUp(16020, 1500, hasAnimated);
             <form onSubmit={handleRequestSubmit} className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm text-[#555555] md:col-span-1">
                 FULL NAME
-                <input required name="fullName" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="text" placeholder="e.g adeola bankole" />
+                <input required name="fullName" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="text" placeholder="e.g Adeola Bankole" />
               </label>
               <label className="flex flex-col gap-2 text-sm text-[#555555] md:col-span-1">
                 PHONE NUMBER
