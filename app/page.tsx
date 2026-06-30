@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/router'
 import { TbDownload } from "react-icons/tb";
 import { Dancing_Script } from "next/font/google"
 import { Fraunces } from "next/font/google"
@@ -13,8 +12,6 @@ import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { PiQuotesFill } from "react-icons/pi";
 import { MdQrCodeScanner } from "react-icons/md";
-import { FaChevronUp } from "react-icons/fa";
-import { FaChevronDown } from "react-icons/fa6";
 import { GiOpenBook } from "react-icons/gi";
 import { GiSelfLove } from "react-icons/gi";
 import { BsStars } from "react-icons/bs";
@@ -55,6 +52,7 @@ function useCountUp(target: number, duration: number = 1500, start: boolean = fa
 }
 export default function Home() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+  const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
@@ -77,9 +75,10 @@ export default function Home() {
   const downloads = useCountUp(15020, 1500, hasAnimated);
   const readers = useCountUp(20020, 1500, hasAnimated);
   const reviews = useCountUp(16020, 1500, hasAnimated);
-  const [expanded, setExpanded] = useState(false);
   const openRequestModal = () => setIsRequestModalOpen(true);
   const closeRequestModal = () => setIsRequestModalOpen(false);
+  const openLegacyModal = () => setIsLegacyModalOpen(true);
+  const closeLegacyModal = () => setIsLegacyModalOpen(false);
   const handleRequestSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     closeRequestModal();
@@ -111,10 +110,11 @@ export default function Home() {
                 ✕
               </button>
             </div>
-            <nav className="flex flex-col gap-3 text-sm text-[#555555]">
+            <nav className="flex flex-col gap-3 text-sm text-[#555555] hover:text-[#C0840B]">
               <Link href="#about">About</Link>
               <Link href="#review">Review</Link>
               <Link href="#books">Books</Link>
+              <Link href="#books">Foundation</Link>
             </nav>
             <a
               href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
@@ -133,11 +133,12 @@ export default function Home() {
       <header className={` hidden md:flex bg-[#F9F5EE] ${fruances.className} fixed top-0 right-0 left-0 z-50 flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:px-20`}>
         <a href="#"><span className={`${dancing.className} text-xl font-bold text-[#280506] italic`}>Kemi Olumuyiwa</span></a>
         <nav className="flex flex-wrap justify-center gap-4 md:flex-1 md:gap-5">
-          <Link href="#about" className="text-[#555555]">About</Link>
-          <Link href="#books" className="text-[#555555]">Books</Link>
-          <Link href="#review" className="text-[#555555]">Review</Link>
+          <Link href="#about" className="text-[#555555] hover:text-[#C0840B]">About</Link>
+          <Link href="#books" className="text-[#555555] hover:text-[#C0840B]">Books</Link>
+          <Link href="#review" className="text-[#555555] hover:text-[#C0840B]">Review</Link>
+          <Link href="#review" className="text-[#555555] hover:text-[#C0840B]">Foundation</Link>
         </nav>
-        <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#280506] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
+        <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#280506] hover:bg-[#280509]/80 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
           <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
         </a>
       </header>
@@ -157,10 +158,10 @@ export default function Home() {
         </div>
 
         <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} md:w-auto md:flex-row md:px-0`}>
-          <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
+          <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] hover:bg-[#C0840B]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
           </a>
-          <button onClick={openRequestModal} className="bg-[#C0840B1A] flex w-full items-center justify-center cursor-pointer border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
+          <button onClick={openRequestModal} className="bg-[#C0840B1A] hover:bg-[#C0840B1A]/30 flex w-full items-center justify-center cursor-pointer border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
             <span><GiOpenBook /></span> <span>Request A Free Hard Copy</span>
           </button>
         </div>
@@ -168,7 +169,7 @@ export default function Home() {
           <Image
             src="/kemiolumuyiwa.png"
             alt="New Dawn, Same Fire"
-            className="shadow-lg object-cover object-top"
+            className="object-cover object-top"
             fill
             priority
           />
@@ -260,7 +261,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Complimentary Copy */}
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full text-left">
+            <div className="bg-[#F9F5EE] rounded-lg p-6 flex flex-col h-full text-left">
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
                 <TbDownload className="text-white text-xl" />
               </div>
@@ -281,7 +282,7 @@ export default function Home() {
                   <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Mobile Friendly</span></li>
                   <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Read Anywhere</span></li>
                 </ul>
-                <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#240406] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7`}>
+                <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#240406] hover:bg-[#240406]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7`}>
                   <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
                 </a>
               </div>
@@ -289,7 +290,7 @@ export default function Home() {
             </div>
 
             {/* Signed Hard Copy */}
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 flex flex-col h-full text-left">
+            <div className="bg-[#F9F5EE] rounded-lg p-6 flex flex-col h-full text-left">
               <div className="bg-[#260406] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
                 <GiOpenBook className="text-white text-xl" />
               </div>
@@ -300,7 +301,7 @@ export default function Home() {
                 <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
                 <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
               </ul>
-              <button onClick={openRequestModal} className={`${fruances.className} mt-auto flex w-full items-center justify-center gap-4 cursor-pointer rounded bg-[#C0840B1A] border border-[#C0840B4D] px-5 py-4 text-[#280506] md:h-[64px] md:w-auto md:px-7`}>
+              <button onClick={openRequestModal} className={`${fruances.className} mt-auto flex w-full items-center justify-center gap-4 cursor-pointer rounded bg-[#C0840B1A] hover:bg-[#C0840B1A]/30 border border-[#C0840B4D] px-5 py-4 text-[#280506] md:h-[64px] md:w-auto md:px-7`}>
                 <span className="text-xl"><GiOpenBook /></span>
                 <span>Request A Free Hard Copy</span>
               </button>
@@ -332,7 +333,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 pt-10 md:grid-cols-2">
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 items-center flex flex-col h-full">
+            <div className="bg-[#F9F5EE] rounded-lg p-6 items-center flex flex-col h-full">
               <Image
                 src="/kemi_married_to_my_role_model.png"
                 alt="New Dawn, Same Fire"
@@ -347,7 +348,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="bg-[#F9F5EE] shadow-lg rounded-lg p-6 items-center flex flex-col h-full">
+            <div className="bg-[#F9F5EE] rounded-lg p-6 items-center flex flex-col h-full">
               <Image
                 src="/kemi_lifted.png"
                 alt="New Dawn, Same Fire"
@@ -497,15 +498,15 @@ export default function Home() {
         </section>
 
         <section className="flex flex-col my-10 px-4 md:flex-row items-center justify-between md:px-25 gap-4 p-10 bg-[#F9F5EE] md:px-[123px] md:py-[32px]">
-          <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col justify-between items-center flex flex-col md:h-[712px] w-full md:w-1/2 text-center md:text-left" style={{ padding: "28px 22px" }}>
+          <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center flex flex-col md:h-[712px] w-full md:w-1/2 text-center md:text-left" style={{ padding: "28px 22px" }}>
             <div className="bg-[#FFFFFF] rounded-xl flex flex-col text-start justify-between w-full py-3">
               <h2 className={`${sora.className} text-sm md:text-xl font-normal text-[#1B5E35] mb-4`}>ABOUT AUTHOR</h2>
               <h2 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:text-[36px] md:leading-[54px`}>Meet Kemi Olumuyiwa</h2>
             </div>
-            <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
+            <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-justify md:text-base`}>
               Kemi Olumuyiwa is an inspiring author, philanthropist, and speaker, passionately advocating for grace, resilience, and personal transformation. Guided by her strong values and a deep passion for change, she has devoted her life and career to helping others navigate transitions, rediscover their purpose, and ignite their inner fire.
             </p>
-            <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base mt-5 md:mt-0`}>
+            <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-justify md:text-base mt-5 md:mt-0`}>
               Her latest work, <b>New Dawn, Same Fire,</b> stands as a powerful testament that—regardless of the season—grace always paves the way. Beyond her professional pursuits, Kemi is a dedicated philanthropist serving on the board of the Moto Foundation, where she tirelessly creates lasting, positive impact for children and families across Nigeria. Through her remarkable journey, she continues to inspire others to embrace the beauty of starting anew.
             </p>
             {/* Icons Section */}
@@ -570,6 +571,55 @@ export default function Home() {
 
         </section>
 
+        <section id="legacy" className="w-full mb-10 bg-white px-4 py-12 text-center md:py-[10%]">
+          <div className="mx-auto flex max-w-5xl flex-col items-center">
+
+            {/* Message */}
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>LEGACY OF IMPACT</h2>
+            <div className="w-full px-0 md:px-[10%]">
+              <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Vintage Fabric: A Life Of Sacrifice</h3>
+            </div>
+          </div>
+
+          <div id="legacy" className="mx-auto w-full max-w-5xl rounded-2xl gap-4 bg-[#FFFFFF] p-3">
+            <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+              <div className="flex flex-col gap-4 rounded-xl bg-[#FFFFFF] text-start">
+                <div>
+                  <h4 className={`${sora.className}  text-[#260406] font-semibold`}>Florence Mutajero Gbeminiyi (Nee OshO)</h4>
+                  <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555] md:text-base`}>
+                    Imagine for a second, all humans were created as attires; different fabrics, different textures, different colours. What kind of outfit would Maama be? One thing is sure, she’ll be the cynosure of all eyes, a timeless piece of clothing, detailed in cut and thorough in finishing.
+                  </p>
+                </div>
+                <button
+                  onClick={openLegacyModal}
+                  className={`${sora.className} flex w-fit items-center cursor-pointer gap-2 text-sm font-medium text-[#C0840B] hover:underline hover:font-semibold`}
+                >
+                  Read Full Story
+                </button>
+                <div className="overflow-hidden rounded-xl bg-white">
+                  <Image
+                    src="/mutajero.jpg"
+                    alt="Mutajero"
+                    className="h-full w-full object-cover object-top"
+                    width={350}
+                    height={520}
+                  />
+                </div>
+              </div>
+              <div className="overflow-hidden rounded-xl bg-white shadow-sm">
+                <Image
+                  src="/mutajero_gbeminiyi.jpg"
+                  alt="Mutajero Gbeminiyi"
+                  className="h-full w-full object-cover object-top"
+                  width={601}
+                  height={760}
+                />
+              </div>
+            </div>
+          </div>
+
+        </section>
+
       </main>
       <footer className="bg-[#240406] text-white p-8 md:p-15">
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start md:gap-x-12 xl:gap-x-60">
@@ -599,18 +649,6 @@ export default function Home() {
             <Link href="#books" className="text-[#E6E6E6]/60">Books</Link>
           </nav>
 
-          {/* Right Section */}
-          {/* <div className="flex flex-col items-center">
-            <p className={`${fruances.className} text-sm mb-3 text-[#F9F5EE]`}>Scan the QR to get your free copy here.</p>
-            <div className="mx-auto flex aspect-[283/270] w-full max-w-[170px] items-center justify-center rounded-[8px] border-[3px] border-[#240406] bg-white px-[18px] py-[14px] md:px-[28px]">
-              <QRCode
-                value={pdfUrl}
-                size={220}
-                fgColor="#240406"
-                bgColor="#FFFFFF"
-              />
-            </div>
-          </div> */}
         </div>
 
         {/* Bottom Legal Section */}
@@ -623,6 +661,81 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {isLegacyModalOpen ? (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 py-6"
+          onClick={closeLegacyModal}
+        >
+          <div
+            className="w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl md:p-8"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="legacy-story-title"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 id="legacy-story-title" className={`${fruances.className} text-2xl text-[#260406] md:text-3xl`}>
+                  Vintage Fabric: A Life Of Sacrifice
+                </h2>
+                <p className={`${sora.className} mt-2 text-sm font-semibold leading-6 text-[#260406]`}>
+                  Florence Mutajero Gbeminiyi (Nee OshO)
+                </p>
+              </div>
+              <button type="button" onClick={closeLegacyModal} className="rounded-full p-2 text-[#555555] hover:bg-[#F3F4F6]" aria-label="Close legacy story">
+                ✕
+              </button>
+            </div>
+
+            <div className={`${sora.className} mt-6 space-y-4 text-sm text-justify leading-7 text-[#555555] md:text-base`}>
+              <p>
+                Imagine for a second, all humans were created as attires; different fabrics, different textures, different colours. What kind of outfit would Maama be? One thing is sure, she’ll be the cynosure of all eyes, a timeless piece of clothing, detailed in cut and thorough in finishing.
+              </p>
+              <p>
+                In March 1930, the Master Designer and Tailor of Destiny- God Almighty, created one of his best pieces when the world welcomed the arrival of a beautiful damsel in Ogere town, Remo, Ogun State, christened Mutajero Florence Gbeminyi Osho. Mama journeyed into this world through Sanusi and Orebowale Osho amongst four other siblings. At the tender age of 12, she left home to live with her aunt in Lagos who schooled her in trade and thus began a lifelong illustrious career in business. Her early sales acumen was built on merchandise in rice milling.
+              </p>
+              <p>
+                <b className={`${sora.className}`}>A WEAVE OF LOVE</b>
+                <br />
+                In March 1951, the loom of love wove two unique attires together, the threads interlaced, Maama met her soul mate, Pa Josiah Kalejaiye Oyekan (late), who was a leading industrialist (J.K Oyekan & Sons) in Ogere and Lagos. Their union was blessed with seven children; Sunday Olufunmilayo Orebowale, Samuel Oluwasegun, Adesola Adetoro Oluremilekun and Ademoyegun Adetuberu. Others are Adejuwon Oluwafemi Odunmbaku,  Oluwakemi Oluteniola Esther Mayokun and Olumuyiwa Dada Akingbade David Oyekan. Marriage certainly is not a wardrobe of roses, Maama had a few challenges in the early years of her matrimony; a period she chose to describe as ‘tough’ but she was able to pull back the fibre and knit her family together. By 1957, she was forging ahead to a great future with her husband. As Nigeria gained her independence from colonial rule in 1960, mama’s life spun forward in a major turnaround that saw her become a leading distributor of textile materials with the Nigerian Textile Mills Limited. She and a couple of her friends were enlisted as the textile mill’s clientele. She was also a leading major distributor for NICHEM Wax Limited and SPECOMILL. Mama’s family progress was further accentuated with her late husband’s rise to become the only Nigerian in the top management position of the Nigerian Textile Mills Limited, Ikeja, Lagos.
+              </p>
+              <p>
+                <b className={`${sora.className}`}>TURNING PATCHES INTO DESIGN</b>
+                <br />
+                Fate cut Mama a different pattern in January 1970, when she lost the love of her life to a brief illness at a time when their last child; Olumuyiwa Akingbade Oyekan was just over two years old. She toiled day and night as she took up the mantle of training her seven children through life and education, without any support from anybody but God almighty, the master designer and tailor of destinies.  Instead of giving up, she chose to take the needle life handed her and work at a pattern…one stitch at a time. Solely running her textile business which spanned over five decades. Mama is still a major distributor in bulk sales of textile materials and also became a fortitude in the lives of her seven children, ensuring that each of them were brought up in the way of the Lord. She gave them adequate education. Mama cherished raising her children by herself, helping them through turns to work out their own life outlines.  “I never want my children to be left out amongst their peers” she says. She describes herself as not fitting into her age-group’s association in her hey-days because training her children was paramount. But today, “I fit into every class of age-group; God secured our, your future” she explained since 1990. A virtuous woman, Mama remained single, training her children for over 40 years alone, as she turned down suitors, as a single mother. For her, her children were more important to her than any relationship. The buttons came off again when Mama suffered another major loss in 1984 with the passing away of her first child – Sunday Olufunmilayo Oyekan at the age of 32. Her late son, Olufunmilayo, left her three brilliant jewels as grandchildren. These three are now Captains of Industries in Nigeria, United States of America and Canada. Maama Oluwagbeminiyi Oyekan loves construction; she loves building, planting and praying. The cerebral, organized and very warm woman loves people.
+              </p>
+              <p>
+                <b className={`${sora.className}`}>A PATTERN OF THANKSGIVING</b>
+                <br />
+                Mama is blessed with six living children, 23 grand-children and 11 great grandchildren, all spread across the globe. She has travelled far and wide across the world, paying a number of visits to some African Countries, the United States of America, the United Kingdom, Switzerland, the Caribbean and a Holy pilgrimage to Israel with the General Overseer of the Redeemed Christian Church of God, Pastor E.A. & Pastor Mrs. Folu Adeboye in 1996. Mama loyalty to the extended family system is evident. She trained children of some of her siblings, some of whom lived with her for very many years. She describes her children as the “success lesson of her existence” “All the problems I have faced in my life have been wiped off by my children and this brings me joy” No doubt, her children have become the underlay; the fabric underneath the layer of her existence.
+              </p>
+              <p>
+                <b className={`${sora.className}`}>STITCHING MICRO-CREDIT AND HUMANITARIAN WORK</b>
+                <br />
+                Progressively, Mama opened a major outlet (fondly called shop Iya Dudu) in Lagos where she also sold textile materials in wholesale and retail. Despite her very heavy responsibility, she made it a duty to empower a lot of women in her outlets via training in the rudiments of the business. Apart from economically empowering women through training in textile trade and provision of micro-credit, Mama’s philanthropy was further dyed, when it was incorporated as a Limited Liability Company in April 1993 by her children. It was christened “Mutajero Ventures Ltd” The idea extended the length of her giving beyond market women, to enhance education in her local communities. Till date, Mama with her Trust Fund, an Education Foundation, awards Financial Rewards and Scholarships annually to the best male and female students at the Ogere Community High School in Ogere-Remo, her home town and Oke-Ira Community Grammar School, Ogba-Ikeja, Lagos where she’s resided for the four decades.
+              </p>
+              <p>
+                <b className={`${sora.className}`}>SERVICE TO GOD - THE TAILOR OF LIFE</b>
+                <br />
+                Outside hard work and strong family values, another of Mama’s strong threads is her high regard for the Almighty God which she adequately instilled into all her children. She is currently an Elder, in fact, the Eldest at the City of David Parish of the Redeemed Christian Church of God (RCCG), Victoria Island, Lagos being shepherd by Pastor Idowu and Pastor Dr. (Mrs.) Siju Iluyomade. Dr. Siju Iluyomade who fondly refers to herself as “Maama’s Daughter” is the Founder and Convener of “ARISE WOMEN CONFERENCE” (ARISE FOR A WOMAN TODAY) a solid charity organization that is lifting many mothers, in fact, many women out of poverty. Maama Florence has been a staunch member of the organization for nine (9) years. Before this, she was ordained a deaconess at the Christ Onward Gospel Church and was installed the “Mother in Israel” of the Church in 2009. She is a staunch member of Methodist Church in Nigeria who conferred her with the “Majekobaje of Methodist Church of Ogere Remo". She’s also the Mother of the Youth in the Christ Apostolic Church, Jesus Miracle Mountain, Lagos.
+              </p>
+              <p>
+                In recognition of Mama’s selfless service, she was made the Life Patron of the church’s choir in 2002.  When life seemed knotted, by faith, Mama always knew there was a crown on the other side of the embroidery. As Mama celebrates her nonagenarian years, we pray for many more merry years ahead. Years clothed in beauty, great health, increased and flourishing wisdom. We wish you all the best, Great-Grandma. Wear your best clothes and catwalk on the long runway of the 9th Floor.
+              </p>
+              <p>We cherish you Grandma 👵</p>
+              <p>WE LOVE YOU MAAMI 😍</p>
+            </div>
+
+            <a
+                  href="#legacy" onClick={closeLegacyModal}
+                  className={`${sora.className} flex w-fit mt-4 items-center cursor-pointer gap-2 text-sm font-medium text-[#C0840B] hover:underline hover:font-semibold`}
+                >
+                  Close Full Story
+                </a>
+          </div>
+        </div>
+      ) : null}
 
       {isRequestModalOpen ? (
         <div
