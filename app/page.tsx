@@ -342,7 +342,7 @@ export default function Home() {
               />
               <div className="px-0 text-center md:px-[10%]">
                 <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-3xl md:leading-[54px]`}>Married to My Role Model </h3>
-                <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
+                <p className={` ${sora.className} text-sm leading-6 text-[#555555] text-justify md:text-base`}>
                   Married to My Role Model is a faith-filled and inspiring book that encourages readers to rise above life's challenges through unwavering trust in God. With a foreword by Pastor Mrs. Folu Adebayo of RCCG, the book celebrates God's faithfulness, the beauty of a strong marriage, spiritual partnership, and the importance of family. Through personal experiences and practical life lessons, Kemi Olumuyiwa inspires readers to build resilient relationships and live purposefully with God at the center.
                 </p>
               </div>
@@ -357,7 +357,7 @@ export default function Home() {
               />
               <div className="justify-center px-0 text-center md:px-[10%]">
                 <h3 className={`${fruances.className} text-xl leading-[38px] font-bold md:text-3xl md:leading-[54px]`}>Lifted</h3>
-                <p className={` ${sora.className} text-sm leading-6 text-[#555555] md:text-base`}>
+                <p className={` ${sora.className} text-sm leading-6 text-[#555555] text-justify md:text-base`}>
                   Lifted is a heartfelt celebration of Kemi Olumuyiwa's life, love, and journey of grace up to her 50th birthday. In this inspiring book, she reflects on the challenges she has overcome, the victories she has experienced, and the lessons God has taught her along the way. Her story encourages readers to embrace faith, persevere through life's difficulties, and recognize that with God by their side, no obstacle is insurmountable.
                 </p>
               </div>
