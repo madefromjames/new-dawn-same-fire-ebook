@@ -142,7 +142,7 @@ export default function Home() {
         </a>
       </header>
 
-      <main className="flex flex-col items-center overflow-x-hidden mt-17 md:pt-0">
+      <main className="flex flex-col items-center overflow-x-hidden mt-26 md:pt-0">
         {/* <div className="mt-8 flex h-[36px] w-fit max-w-[92vw] items-center justify-center gap-[2px] whitespace-nowrap rounded-[30px] border border-[#E5E7EB] bg-white px-[18px] py-[6px] md:mt-10 md:w-[232px] md:px-[25px]">
           <span className={`${dancing.className} text-green-600 italic font-dancing`}>
             Exclusive Access
@@ -160,9 +160,9 @@ export default function Home() {
           <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
           </a>
-          <a href="#" onClick={openRequestModal} className="bg-[#C0840B1A] flex w-full items-center justify-center border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
+          <button onClick={openRequestModal} className="bg-[#C0840B1A] flex w-full items-center justify-center cursor-pointer border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
             <span><GiOpenBook /></span> <span>Request A Free Hard Copy</span>
-          </a>
+          </button>
         </div>
         <div className="relative mt-8 h-[52vh] w-full overflow-hidden md:h-[205vh]">
           <Image
@@ -181,7 +181,7 @@ export default function Home() {
             </div>
             <div>
               <h2 className={`${fruances.className} text-2xl  font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${readers.toLocaleString()}+` : "100%"}</h2>
-              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Authentic Reader feedack</p>
+              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Authentic Feedack</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-1">
@@ -230,7 +230,7 @@ export default function Home() {
                     <BsStars className="text-white text-xl" />
                   </div>
                   <div className="flex flex-col md:items-start pb-[15px]">
-                    <strong className="text-2xl md:pb-[15px]  md:text-3xl">Unfiltered Moments</strong>
+                    <strong className="text-2xl md:pb-[15px] md:text-3xl">Unfiltered Moments</strong>
                     <span className={`${sora.className} text-[#555555]`}>Raw, lived and unfiltered experiences that fully mirror your own.</span>
                   </div>
                 </li>
@@ -275,7 +275,7 @@ export default function Home() {
                 />
               </div> */}
               <div>
-                <ul className="text-gray-600 mb-6">
+                <ul className={`${sora.className} text-gray-600 mb-6`}>
                   <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Instant Access</span></li>
                   <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>PDF Format</span></li>
                   <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Mobile Friendly</span></li>
@@ -294,16 +294,16 @@ export default function Home() {
                 <GiOpenBook className="text-white text-xl" />
               </div>
               <h3 className={`${fruances.className} text-lg my-4 md:text-xl`}>Request A Free Hard Copy</h3>
-              <p className={`${sora.className} mb-4 text-base leading-6 text-[#555555] md:text-lg`}>Request a keepsake edition by <span className="whitespace-nowrap text-[#240406]">Kemi Olumuyiwa.</span></p>
-              <ul className="text-gray-600 mb-6">
+              <p className={`${sora.className} mb-4 text-base leading-6 text-[#555555] md:text-lg`}>You can request for a free hard copy, and we will contact you regarding delivery.</p>
+              <ul className={`${sora.className} text-gray-600 mb-6`}>
                 <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Premium Print</span></li>
                 <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
                 <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
               </ul>
-              <a type="button" onClick={openRequestModal} className={`${fruances.className} mt-auto flex w-full items-center justify-center gap-4 rounded bg-[#C0840B1A] border border-[#C0840B4D] px-5 py-4 text-[#280506] md:h-[64px] md:w-auto md:px-7`}>
+              <button onClick={openRequestModal} className={`${fruances.className} mt-auto flex w-full items-center justify-center gap-4 cursor-pointer rounded bg-[#C0840B1A] border border-[#C0840B4D] px-5 py-4 text-[#280506] md:h-[64px] md:w-auto md:px-7`}>
                 <span className="text-xl"><GiOpenBook /></span>
                 <span>Request A Free Hard Copy</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -374,13 +374,13 @@ export default function Home() {
             <div className="w-full px-0 md:px-[10%]">
               <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>What Readers Are Saying</h3>
               <p className={` ${sora.className} mx-auto max-w-xs text-sm leading-6 text-[#555555] md:text-base`}>
-                An honest, first-person look at the story behind New Dawn, Same Fire.
+                Real feedback from readers whose lives have beeninspired by New Dawn, Same Fire.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] md:items-stretch gap-4 pt-10">
-            <div className="md:order-3 items-stretch flex justify-center max-w-full self-stretch w-full">
+            <div className="md:order-3 items-stretch flex justify-center h-full max-w-full self-stretch w-full">
               <Image
                 src="/kemi_new_dawn.png"
                 alt="New Dawn, Same Fire"
@@ -389,13 +389,13 @@ export default function Home() {
                 height={379}
               />
             </div>
-            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col justify-between items-center md:order-1" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-1" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
-                  <span className="text-[#555555CC]"><FaRegStar /></span>
+                  <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#555555CC]"><FaRegStar /></span>
                 </div>
                 < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
@@ -404,46 +404,40 @@ export default function Home() {
                   In my opinion, this is a transformative exercise we should all engage in from time to time. This book consistently reflects the outcomes of a life lived with purpose. It serves as a powerful reminder of the benefits that come from giving generously to both people and God. As the narrative unfolds, it emphasizes that retirement should not be viewed as an end but rather as a new beginning. A great book that I would strongly recommend.
                 </p>
               <div className="flex items-center w-full gap-2 py-4">
-                <Image
-                src="/felix.svg"
-                alt="Felix Babalola"
-                width={44}
-                height={44}
-                />
+                <div className="w-13 h-13 rounded-full bg-[#FF6A6A] flex items-center justify-center flex-shrink-0">
+                  <span className={`${sora.className} text-white text-xl font-semibold`}>FB</span>
+                </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#280506CC] text-xl font-semibold`}>Felix Babalola</span>
-                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified user</span>
+                  <span className={`${sora.className} text-[#280506CC] text-lg md:text-xl font-semibold`}>Felix Babalola</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified reader</span>
                 </div>
               </div>
             </div>
-            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col justify-between items-center md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
-                  <span className="text-[#555555CC]"><FaRegStar /></span>
+                  <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#555555CC]"><FaRegStar /></span>
                 </div>
                 < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
               </div>
                 <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
-                  In my opinion, this is a transformative exercise we should all engage in from time to time. This book consistently reflects the outcomes of a life lived with purpose. It serves as a powerful reminder of the benefits that come from giving generously to both people and God. As the narrative unfolds, it emphasizes that retirement should not be viewed as an end but rather as a new beginning. A great book that I would strongly recommend.
-                </p>
+                In my opinion, this is a transformative exercise we should all engage in from time to time. This book consistently reflects the outcomes of a life lived with purpose. It serves as a powerful reminder of the benefits that come from giving generously to both people and God. As the narrative unfolds, it emphasizes that retirement should not be viewed as an end but rather as a new beginning. A great book that I would strongly recommend.
+              </p>
               <div className="flex items-center w-full gap-2 py-4">
-                <Image
-                src="/sarah.svg"
-                alt="Sarah Pollen"
-                width={44}
-                height={44}
-                />
+                <div className="w-13 h-13 rounded-full bg-[#20C760] flex items-center justify-center flex-shrink-0">
+                  <span className={`${sora.className} text-white text-xl font-semibold`}>SP</span>
+                </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#280506CC] text-xl font-semibold`}>Sarah Pollen</span>
-                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified user</span>
+                  <span className={`${sora.className} text-[#280506CC] text-lg md:text-xl font-semibold`}>Sarah Pollen</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified reader</span>
                 </div>
               </div>
             </div>
-            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col justify-between items-center md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
@@ -458,25 +452,22 @@ export default function Home() {
                   This book serves as a roadmap for anyone who believes their best chapters are still ahead of them and that a true legacy is built through consistent, family-centred actions. Welcome to Kemi's world of faith, family, and industry.
                 </p>
               <div className="flex items-center w-full gap-2 py-4">
-                <Image
-                src="/cherry.svg"
-                alt="Cherry Oladele"
-                width={44}
-                height={44}
-                />
+                <div className="w-13 h-13 rounded-full bg-[#C0840B] flex items-center justify-center flex-shrink-0">
+                  <span className={`${sora.className} text-white text-xl font-semibold`}>CO</span>
+                </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#280506CC] text-xl font-semibold`}>Cherry Oladele</span>
-                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified user</span>
+                  <span className={`${sora.className} text-[#280506CC] text-lg md:text-xl font-semibold`}>Cherry Oladele</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified reader</span>
                 </div>
               </div>
             </div>
-            <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col justify-between md:col-span-2 items-center md:w-full md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between md:col-span-2 items-center md:w-full md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
-                  <span className="text-[#555555CC]"><FaRegStar /></span>
+                  <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#555555CC]"><FaRegStar /></span>
                 </div>
                 < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
@@ -485,15 +476,12 @@ export default function Home() {
                   New Dawn, Same Fire: A Journey of Unfiltered Grace takes you through the world of corporate boardrooms and the quiet, heavy moments of a home held together by faith and resolve. On its pages you feel the weight of every pillar that stood firm and the courage behind every support that changed it all. At the very heart of this journey is a celebration of the woman who started it all: the author's mother. This book beautifully honours the woman who... didn't just raise a daughter, but mentored a visionary, passing down the sharp business instincts and the moral gauge that define her today. Look forward to the special section on experiential boardroom lessons for the younger generation of career women.
                 </p>
               <div className="flex items-center w-full gap-2 py-4">
-                <Image
-                src="/sola.svg"
-                alt="Sola Sanni"
-                width={44}
-                height={44}
-                />
+                <div className="w-13 h-13 rounded-full bg-[#418AF2] flex items-center justify-center flex-shrink-0">
+                  <span className={`${sora.className} text-white text-xl font-semibold`}>SS</span>
+                </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#280506CC] text-xl font-semibold`}>Sola Sanni</span>
-                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified user</span>
+                  <span className={`${sora.className} text-[#280506CC] text-lg md:text-xl font-semibold`}>Sola Sanni</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Verified reader</span>
                 </div>
               </div>
             </div>
@@ -508,31 +496,67 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
-        </section>
-
-        <section className="flex flex-col mb-10 px-10 md:flex-row items-center md:px-25 gap-4 p-10 bg-[#F9F5EE]">
-
-          {/* Headings - always first */}
-          <div className="w-full text-center md:hidden">
-            <h2 className={`${sora.className} text-sm font-normal text-[#1B5E35]`}>ABOUT AUTHOR</h2>
-            <h2 className={`${fruances.className} italic text-[18px] leading-[38px] md:text-[36px] font-normal text-[#260406]`}>Meet Kemi Olumuyiwa</h2>
+        <section className="flex flex-col my-10 px-4 md:flex-row items-center justify-between md:px-25 gap-4 p-10 bg-[#F9F5EE] md:px-[123px] md:py-[32px]">
+          <div id="story" className="bg-[#FFFFFF] shadow-lg rounded-2xl p-3 flex flex-col justify-between items-center flex flex-col md:h-[712px] w-full md:w-1/2 text-center md:text-left" style={{ padding: "28px 22px" }}>
+            <div className="bg-[#FFFFFF] rounded-xl flex flex-col text-start justify-between w-full py-3">
+              <h2 className={`${sora.className} text-sm md:text-xl font-normal text-[#1B5E35] mb-4`}>ABOUT AUTHOR</h2>
+              <h2 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:text-[36px] md:leading-[54px`}>Meet Kemi Olumuyiwa</h2>
+            </div>
+            <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
+              Kemi Olumuyiwa is an inspiring author, philanthropist, and speaker, passionately advocating for grace, resilience, and personal transformation. Guided by her strong values and a deep passion for change, she has devoted her life and career to helping others navigate transitions, rediscover their purpose, and ignite their inner fire.
+            </p>
+            <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base mt-5 md:mt-0`}>
+              Her latest work, <b>New Dawn, Same Fire,</b> stands as a powerful testament that—regardless of the season—grace always paves the way. Beyond her professional pursuits, Kemi is a dedicated philanthropist serving on the board of the Moto Foundation, where she tirelessly creates lasting, positive impact for children and families across Nigeria. Through her remarkable journey, she continues to inspire others to embrace the beauty of starting anew.
+            </p>
+            {/* Icons Section */}
+            <div className={`${sora.className} grid grid-cols-5 items-start text-center justify-center gap-4 mt-4 md:mt-0 text-sm font-medium text-gray-800 md:justify-between`}>
+              <span className="flex flex-col items-center gap-2">
+                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <GiOpenBook className="text-[#C0840B] text-xl" />
+                </div>
+                <p className="text-[#555555] text-xs md:text-sm">Author</p>
+              </span>
+              <span className="flex flex-col items-center gap-2">
+                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <MdKeyboardVoice className="text-[#C0840B] text-xl" />
+                </div>
+                <p className="text-[#555555] text-xs md:text-sm">Speaker</p>
+              </span>
+              <span className="flex flex-col items-center gap-2">
+                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <MdGroups2 className="text-[#C0840B] text-xl" />
+                </div>
+                <p className="text-[#555555] text-xs md:text-sm">Mentor</p>
+              </span>
+              <span className="flex flex-col items-center gap-2">
+                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <GrAggregate className="text-[#C0840B] text-xl" />
+                </div>
+                <p className="text-[#555555] text-xs md:text-sm">Leader</p>
+              </span>
+              <span className="flex flex-col items-center gap-2">
+                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
+                  <FaHandHoldingWater className="text-[#C0840B] text-xl" />
+                </div>
+                <p className="text-[#555555] text-xs md:text-sm">Philantropist</p>
+              </span>
+            </div>
           </div>
 
           {/* Author Image */}
-          <div className="order-1 md:order-2 w-full md:w-1/2 h-[350px] overflow-hidden rounded-xl">
+          <div className="w-full h-[500px] md:h-[712px] md:w-1/2 overflow-hidden rounded-xl">
             <Image
               src="/kemib.jpg"
               alt="Kemi Olumuyiwa"
               className="rounded-xl object-cover object-top w-full h-full scale-110"
-              width={579} height={418}
+              width={503} height={712}
             />
           </div>
 
           {/* Text and Icons - after image on mobile, left side on desktop */}
-          <div className="order-2 md:order-1 flex flex-col w-full md:w-1/2 text-center md:text-left">
+          {/* <div className="order-2 md:order-1 flex flex-col w-full md:w-1/2 text-center md:text-left"> */}
             {/* Headings - desktop only */}
-            <h2 className={`${sora.className} hidden md:block text-xl font-normal text-[#1B5E35] mb-4`}>ABOUT AUTHOR</h2>
+            {/* <h2 className={`${sora.className} hidden md:block text-xl font-normal text-[#1B5E35] mb-4`}>ABOUT AUTHOR</h2>
             <h2 className={`${fruances.className} hidden md:block italic text-3xl font-normal text-[#260406] mb-4`}>Meet Kemi Olumuyiwa</h2>
 
             <p className={`${sora.className} text-sm w-full md:text-base leading-relaxed mb-4 text-[#555555] `}>
@@ -541,42 +565,8 @@ export default function Home() {
             </p>
             <p className={`${sora.className} text-sm md:text-base mb-6 text-[#555555]`}>
               New Dawn, Same Fire is her testimony that no matter the season, grace always makes a way..
-            </p>
-
-            {/* Icons Section */}
-            <div className={`${sora.className} grid grid-cols-5 items-start text-center justify-center gap-4 text-sm font-medium text-gray-800 md:justify-between`}>
-              <span className="flex flex-col items-center gap-2">
-                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
-                  <GiOpenBook className="text-[#C0840B] text-xl" />
-                </div>
-                <p className="text-[#555555]">Author</p>
-              </span>
-              <span className="flex flex-col items-center gap-2">
-                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
-                  <MdKeyboardVoice className="text-[#C0840B] text-xl" />
-                </div>
-                <p className="text-[#555555]">Speaker</p>
-              </span>
-              <span className="flex flex-col items-center gap-2">
-                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
-                  <MdGroups2 className="text-[#C0840B] text-xl" />
-                </div>
-                <p className="text-[#555555]">Mentor</p>
-              </span>
-              <span className="flex flex-col items-center gap-2">
-                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
-                  <GrAggregate className="text-[#C0840B] text-xl" />
-                </div>
-                <p className="text-[#555555]">Leader</p>
-              </span>
-              <span className="flex flex-col items-center gap-2">
-                <div className="bg-[#C0840B1A] rounded-2xl w-10 h-10 flex items-center justify-center flex-shrink-0">
-                  <FaHandHoldingWater className="text-[#C0840B] text-xl" />
-                </div>
-                <p className="text-[#555555]"><span className="hidden md:inline">Community </span>Impact</p>
-              </span>
-            </div>
-          </div>
+            </p>            
+          </div> */}
 
         </section>
 
@@ -645,7 +635,7 @@ export default function Home() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h2 className={`${fruances.className} text-2xl text-[#260406] md:text-3xl`}>Request Free hard copy</h2>
+                <h2 className={`${fruances.className} text-2xl text-[#260406] md:text-3xl`}>Request Free Hard Copy</h2>
                 <p className={`${sora.className} mt-2 text-sm leading-6 text-[#555555]`}>
                   Free for our guests- while supplies last. we’ll confirm delivery detail shortly.
                 </p>
