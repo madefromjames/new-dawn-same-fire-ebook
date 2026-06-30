@@ -679,7 +679,7 @@ export default function Home() {
                 <h2 id="legacy-story-title" className={`${fruances.className} text-2xl text-[#260406] md:text-3xl`}>
                   Vintage Fabric: A Life Of Sacrifice
                 </h2>
-                <p className={`${sora.className} mt-2 text-sm font-semibold leading-6 text-[#260406]`}>
+                <p className={`${sora.className} mt-2 text-sm font-normal leading-6 text-[#260406]`}>
                   Florence Mutajero Gbeminiyi (Nee OshO)
                 </p>
               </div>
