@@ -86,7 +86,7 @@ export default function Home() {
 
   return (
     <>
-      <header id="home" className={`bg-[#F9F5EE] ${fruances.className} fixed top-0 right-0 left-0 z-50 flex items-center justify-between px-4 py-4 md:hidden`}>
+      <header id="home" className={`bg-white ${fruances.className} fixed top-0 right-0 left-0 z-50 flex items-center justify-between px-4 py-4 md:hidden`}>
         <a href="#"><span className={`${dancing.className} text-xl font-bold text-[#280506] italic`}>Kemi Olumuyiwa</span></a>
 
         {/* Hamburger toggle */}
@@ -130,7 +130,7 @@ export default function Home() {
         )}
       </header>
 
-      <header className={` hidden md:flex bg-[#F9F5EE] ${fruances.className} fixed top-0 right-0 left-0 z-50 flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:px-20`}>
+      <header className={` hidden md:flex bg-white ${fruances.className} fixed top-0 right-0 left-0 z-50 flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:px-20`}>
         <a href="#"><span className={`${dancing.className} text-xl font-bold text-[#280506] italic`}>Kemi Olumuyiwa</span></a>
         <nav className="flex flex-wrap justify-center gap-4 md:flex-1 md:gap-5">
           <Link href="#about" className="text-[#555555] hover:text-[#C0840B]">About</Link>
@@ -654,7 +654,7 @@ export default function Home() {
 
         </div>
 
-        <div className="w-full text-5xl mt-8 md:text-[158px] font-normal text-[#F9F5EE1A] text-center justify-between">
+        <div className="w-full text-5xl mt-8 md:text-9xl font-normal text-[#F9F5EE1A] text-center justify-between">
           <p className={`${fruances.className}`}>Kemi Olumuyiwa</p>
         </div>
 
