@@ -645,36 +645,36 @@ export default function Home() {
             
             <div id="story" className="bg-[#FFFFFF] rounded-2xl flex flex-col justify-between items-center min-h-[286px]" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
               <div>
-                  <h4 className={`${sora.className}  text-[#260406] font-semibold`}>Ways to support the MOTO Foundation</h4>
-                  <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555]`}>
+                  <h4 className={`${sora.className} text-[#260406] text-sm font-semibold`}>Ways to support the MOTO Foundation</h4>
+                  <p className={`${sora.className} mt-3 text-xs leading-relaxed text-justify text-[#555555]`}>
                     Contributions to the MOTO Foundation can be made using the account details provided below.
                   </p>
                 </div>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 items-start w-full py-3">
-                <div className="w-13 h-13 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
                   <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><RiContactsLine /></span>
                 </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#555555CC] text-sm md:text-lg`}>Account Name</span>
-                  <span className={`${sora.className} text-[#0F172A] text-lg`}>Mutajero Florence Oyekan (MOTO)</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Account Name</span>
+                  <span className={`${sora.className} text-[#0F172A] text-sm md:text-lg`}>Mutajero Florence Oyekan (MOTO)</span>
                 </div>
               </div>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 items-start w-full py-3">
-                <div className="w-13 h-13 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
                   <span className="text-[#D5AD5D] text-2xl"><RiBankLine /></span>
                 </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#555555CC] text-sm md:text-lg`}>Bank Name</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Bank Name</span>
                   <span className={`${sora.className} text-[#0F172A] text-lg`}>Union Bank</span>
                 </div>
               </div>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 justify-between items-start w-full py-3">
                 <div className="flex gap-2">
-                  <div className="w-13 h-13 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
                   <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><IoWalletOutline /></span>
                 </div>
                 <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#555555CC] text-sm md:text-lg`}>Account Number</span>
+                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Account Number</span>
                   <span className={`${sora.className} text-[#0F172A] text-lg`}>0176530649</span>
                 </div>
                 </div>
