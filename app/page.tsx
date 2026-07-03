@@ -119,7 +119,7 @@ export default function Home() {
               <Link href="#about">About</Link>
               <Link href="#review">Review</Link>
               <Link href="#books">Books</Link>
-              <Link href="#legacy">Foundation</Link>
+              <Link href="#foundation">Foundation</Link>
             </nav>
             <a
               href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
@@ -141,7 +141,7 @@ export default function Home() {
           <Link href="#about" className="text-[#555555] hover:text-[#C0840B]">About</Link>
           <Link href="#books" className="text-[#555555] hover:text-[#C0840B]">Books</Link>
           <Link href="#review" className="text-[#555555] hover:text-[#C0840B]">Review</Link>
-          <Link href="#legacy" className="text-[#555555] hover:text-[#C0840B]">Foundation</Link>
+          <Link href="#foundation" className="text-[#555555] hover:text-[#C0840B]">Foundation</Link>
         </nav>
         <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#280506] hover:bg-[#280509]/80 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
           <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
@@ -306,7 +306,7 @@ export default function Home() {
                 <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Collectible Edition</span></li>
                 <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Gift Option</span></li>
               </ul>
-              <button onClick={openRequestModal} className={`${fruances.className} mt-auto flex w-full items-center justify-center gap-4 cursor-pointer rounded bg-[#C0840B1A] hover:bg-[#C0840B1A]/30 border border-[#C0840B4D] px-5 py-4 text-[#280506] md:h-[64px] md:w-auto md:px-7`}>
+              <button onClick={openRequestModal} className={`${fruances.className} mt-auto flex w-full items-center justify-center gap-4 cursor-pointer rounded bg-[#C0840B1A] hover:bg-[#C0840B1A]/30 border border-[#C0840B4D] px-5 py-4 text-[#280506] md:w-auto md:px-7`}>
                 <span className="text-xl"><GiOpenBook /></span>
                 <span>Request A Free Hard Copy</span>
               </button>
@@ -630,7 +630,7 @@ export default function Home() {
 
         </section>
 
-        <section id="review" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 md:px-[10%] md:py-[10%]">
+        <section id="foundation" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 md:px-[10%] md:py-[10%]">
           <div className="flex max-w-5xl flex-col items-start">
             <h2 className={`${sora.className} text-sm md:text-xl font-normal md:mb-6 text-[#1B5E35]`}>MOTO FOUNDATION</h2>
             <div className="w-full px-0 items-start">
@@ -722,7 +722,7 @@ export default function Home() {
             <Link href="#about" className="text-[#E6E6E6]/60 hover:text-white">About</Link>
             <Link href="#review" className="text-[#E6E6E6]/60 hover:text-white">Review</Link>
             <Link href="#books" className="text-[#E6E6E6]/60 hover:text-white">Books</Link>
-            <Link href="#legacy" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
+            <Link href="#foundation" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
           </nav>
 
           <div className="flex gap-x-3 items-center md:justify-start">
