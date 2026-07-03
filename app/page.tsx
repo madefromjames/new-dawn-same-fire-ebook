@@ -18,6 +18,10 @@ import { BsStars } from "react-icons/bs";
 import { FiSunset } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import { IoIosCheckmarkCircle } from "react-icons/io";
+import { RiContactsLine } from "react-icons/ri";
+import { RiBankLine } from "react-icons/ri";
+import { IoWalletOutline } from "react-icons/io5";
+import { IoCopyOutline } from "react-icons/io5";
 import QRCode from "react-qr-code";
 import { GrAggregate } from "react-icons/gr";
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
@@ -54,6 +58,7 @@ export default function Home() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
   const statsRef = useRef<HTMLDivElement>(null);
@@ -625,6 +630,81 @@ export default function Home() {
 
         </section>
 
+        <section id="review" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 md:px-[10%] md:py-[10%]">
+          <div className="flex max-w-5xl flex-col items-start">
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal md:mb-6 text-[#1B5E35]`}>MOTO FOUNDATION</h2>
+            <div className="w-full px-0 items-start">
+              <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Making a difference where it matters most</h3>
+              <p className={` ${sora.className} max-w-xl text-sm leading-6 text-[#555555] md:text-base`}>
+                Your generosity will directly support the Foundation’s important work and make a meaningful difference where it is needed most.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] md:items-stretch gap-4 pt-10">
+            
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+              <div>
+                  <h4 className={`${sora.className}  text-[#260406] font-semibold`}>Ways to support the MOTO Foundation</h4>
+                  <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555] md:text-base`}>
+                    Contributions to the MOTO Foundation can be made using the account details provided below.
+                  </p>
+                </div>
+              <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 items-start w-full py-3">
+                <div className="w-13 h-13 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><RiContactsLine /></span>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className={`${sora.className} text-[#555555CC] text-sm md:text-lg`}>Account Name</span>
+                  <span className={`${sora.className} text-[#0F172A] text-lg`}>Mutajero Florence Oyekan (MOTO)</span>
+                </div>
+              </div>
+              <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 items-start w-full py-3">
+                <div className="w-13 h-13 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#D5AD5D] text-2xl"><RiBankLine /></span>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className={`${sora.className} text-[#555555CC] text-sm md:text-lg`}>Bank Name</span>
+                  <span className={`${sora.className} text-[#0F172A] text-lg`}>Union Bank</span>
+                </div>
+              </div>
+              <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 justify-between items-start w-full py-3">
+                <div className="flex gap-2">
+                  <div className="w-13 h-13 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><IoWalletOutline /></span>
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className={`${sora.className} text-[#555555CC] text-sm md:text-lg`}>Account Number</span>
+                  <span className={`${sora.className} text-[#0F172A] text-lg`}>0176530649</span>
+                </div>
+                </div>
+                
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText("0176530649");
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  }}
+                  className="flex items-center gap-2 border-2 border-[#C0840B66] flex-shrink-0 rounded-xl bg-[#FEF9EE1A] p-2 text-[#C0840B] hover:bg-[#C0840B]/20"
+                  aria-label="Copy account number"
+                >
+                  {copied ? <IoIosCheckmarkCircle className="text-green-600 text-xl" /> : <IoCopyOutline className="text-xl" />}
+                Copy</button>
+              </div>
+            </div>
+            <div className="items-stretch flex justify-center h-full max-w-full self-stretch w-full">
+              <Image
+                src="/children.jpg"
+                alt="Children"
+                className="h-[379px] max-w-full rounded-xl object-cover object-center"
+                width={752}
+                height={286}
+              />
+            </div>
+
+          </div>
+        </section>
+
       </main>
       <footer className="bg-[#240406] text-white p-8 md:p-15">
         <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start md:gap-x-12 xl:gap-x-60">
@@ -645,12 +725,12 @@ export default function Home() {
             <Link href="#legacy" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
           </nav>
 
-            <div className="flex gap-x-3 items-center md:justify-start">
-              <a href="https://www.linkedin.com/in/kemiolumuyiwa?originalSubdomain=ng" className={`${fruances.className} text-sm md:text-lg text-white/60 hover:text-white italic`}>Click to Follow us on</a>
-              <a href="https://www.linkedin.com/in/kemiolumuyiwa?originalSubdomain=ng" aria-label="Linkedin" target="blank">
-                <span><img src="/linkedin.svg" className="size-8" alt="Linkedin" /></span>
-              </a>
-            </div>
+          <div className="flex gap-x-3 items-center md:justify-start">
+            <a href="https://www.linkedin.com/in/kemiolumuyiwa?originalSubdomain=ng" className={`${fruances.className} text-sm md:text-lg text-white/60 hover:text-white italic`}>Click to Follow us on</a>
+            <a href="https://www.linkedin.com/in/kemiolumuyiwa?originalSubdomain=ng" aria-label="Linkedin" target="blank">
+              <span><img src="/linkedin.svg" className="size-8" alt="Linkedin" /></span>
+            </a>
+          </div>
 
         </div>
 
@@ -731,11 +811,11 @@ export default function Home() {
             </div>
 
             <a
-                  href="#legacy" onClick={closeLegacyModal}
-                  className={`${sora.className} flex w-fit mt-4 items-center cursor-pointer gap-2 text-sm font-medium text-[#C0840B] hover:underline hover:font-semibold`}
-                >
-                  Close Full Story
-                </a>
+              href="#legacy" onClick={closeLegacyModal}
+              className={`${sora.className} flex w-fit mt-4 items-center cursor-pointer gap-2 text-sm font-medium text-[#C0840B] hover:underline hover:font-semibold`}
+            >
+              Close Full Story
+            </a>
           </div>
         </div>
       ) : null}
