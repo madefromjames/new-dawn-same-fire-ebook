@@ -643,10 +643,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] md:items-stretch gap-4 pt-10">
             
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl flex flex-col justify-between items-center min-h-[286px]" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
               <div>
                   <h4 className={`${sora.className}  text-[#260406] font-semibold`}>Ways to support the MOTO Foundation</h4>
-                  <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555] md:text-base`}>
+                  <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555]`}>
                     Contributions to the MOTO Foundation can be made using the account details provided below.
                   </p>
                 </div>
@@ -692,11 +692,11 @@ export default function Home() {
                 Copy</button>
               </div>
             </div>
-            <div className="items-stretch flex justify-center h-full max-w-full self-stretch w-full">
+            <div className="items-stretch flex justify-center max-w-full self-stretch w-full">
               <Image
                 src="/children.jpg"
                 alt="Children"
-                className="h-[379px] max-w-full rounded-xl object-cover object-center"
+                className="h-[286px] w-full rounded-xl object-cover object-center"
                 width={752}
                 height={286}
               />
