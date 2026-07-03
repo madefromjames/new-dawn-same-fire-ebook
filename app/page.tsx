@@ -271,7 +271,7 @@ export default function Home() {
                 <TbDownload className="text-white text-xl" />
               </div>
               <h3 className={`${fruances.className} text-lg my-4 md:text-xl`}>Download Your free Digital Copy</h3>
-              <p className={`${sora.className} text-base mb-4 text-[#555555] md:text-lg`}>As a guest of this celebration, you have exclusive access to the digital edition.</p>
+              <p className={`${sora.className} text-base mb-4 text-[#555555] md:text-lg`}>This book is our gift to you — a story of grace, resilience, and new beginnings, yours to keep.</p>
               {/* <div className=" hidden md:flex mx-auto aspect-[283/270] w-full max-w-[283px] items-center justify-center rounded-[8px] border-[3px] border-[#240406] bg-white px-[18px] py-[14px] md:px-[28px]">
                 <QRCode
                   value={pdfUrl}
@@ -380,7 +380,7 @@ export default function Home() {
             <div className="w-full px-0 md:px-[10%]">
               <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>What Readers Are Saying</h3>
               <p className={` ${sora.className} mx-auto max-w-xs text-sm leading-6 text-[#555555] md:text-base`}>
-                Real feedback from readers whose lives have beeninspired by New Dawn, Same Fire.
+                Real feedback from readers whose lives have been inspired by New Dawn, Same Fire.
               </p>
             </div>
           </div>
