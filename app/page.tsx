@@ -4,6 +4,8 @@ import { useState, type FormEvent } from "react";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CanvasText } from "@/components/ui/canvas-text";
+import dynamic from "next/dynamic";
 import { TbDownload } from "react-icons/tb";
 import { Dancing_Script } from "next/font/google"
 import { Fraunces } from "next/font/google"
@@ -84,6 +86,14 @@ export default function Home() {
   const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const HoverEffect = dynamic(
+    () => import("@/components/ui/card-hover-effect").then(mod => mod.HoverEffect),
+    { ssr: false }
+  );
+  const EncryptedText = dynamic(
+    () => import("@/components/ui/encrypted-text").then(mod => mod.EncryptedText),
+    { ssr: false }
+  );
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
   const { ref: heroRef, isVisible: isHeroVisible } = useInView(0.2);
@@ -165,7 +175,8 @@ export default function Home() {
         <div ref={heroRef} className="px-4 text-center md:px-0">
           <h1 className={`${fruances.className} text-2xl leading-[44px] font-semibold text-center transition-all duration-700 ease-out md:text-[72px] md:leading-[72px] ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}><span className="text-[#280506]">NEW DAWN,</span> <span className="text-[#C0840B]"><i>SAME FIRE</i></span></h1>
           <p className={`${sora.className} mx-auto mt-2 max-w-2xl text-sm leading-6 text-[#555555] transition-all delay-150 duration-700 ease-out md:text-base ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
-            The words you need today might be waiting on the very next page—claim your free copy and start reading today.
+            The words you need today might be waiting on the very next page
+            <EncryptedText text="—claim your free copy and start reading today." />
           </p>
         </div>
 
@@ -411,11 +422,11 @@ export default function Home() {
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#555555CC]"><FaRegStar /></span>
                 </div>
-                < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
+                < PiQuotesFill className="text-[#C0840B26] text-3xl" />
               </div>
-                <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
-                  In my opinion, this is a transformative exercise we should all engage in from time to time. This book consistently reflects the outcomes of a life lived with purpose. It serves as a powerful reminder of the benefits that come from giving generously to both people and God. As the narrative unfolds, it emphasizes that retirement should not be viewed as an end but rather as a new beginning. A great book that I would strongly recommend.
-                </p>
+              <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
+                In my opinion, this is a transformative exercise we should all engage in from time to time. This book consistently reflects the outcomes of a life lived with purpose. It serves as a powerful reminder of the benefits that come from giving generously to both people and God. As the narrative unfolds, it emphasizes that retirement should not be viewed as an end but rather as a new beginning. A great book that I would strongly recommend.
+              </p>
               <div className="flex items-center w-full gap-2 py-4">
                 <div className="w-13 h-13 rounded-full bg-[#FF6A6A] flex items-center justify-center flex-shrink-0">
                   <span className={`${sora.className} text-white text-xl font-semibold`}>FB</span>
@@ -435,9 +446,9 @@ export default function Home() {
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#555555CC]"><FaRegStar /></span>
                 </div>
-                < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
+                < PiQuotesFill className="text-[#C0840B26] text-3xl" />
               </div>
-                <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
+              <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
                 In my opinion, this is a transformative exercise we should all engage in from time to time. This book consistently reflects the outcomes of a life lived with purpose. It serves as a powerful reminder of the benefits that come from giving generously to both people and God. As the narrative unfolds, it emphasizes that retirement should not be viewed as an end but rather as a new beginning. A great book that I would strongly recommend.
               </p>
               <div className="flex items-center w-full gap-2 py-4">
@@ -459,11 +470,11 @@ export default function Home() {
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#EFB94C]"><FaStar /></span>
                 </div>
-                < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
+                < PiQuotesFill className="text-[#C0840B26] text-3xl" />
               </div>
-                <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
-                  This book serves as a roadmap for anyone who believes their best chapters are still ahead of them and that a true legacy is built through consistent, family-centred actions. Welcome to Kemi's world of faith, family, and industry.
-                </p>
+              <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
+                This book serves as a roadmap for anyone who believes their best chapters are still ahead of them and that a true legacy is built through consistent, family-centred actions. Welcome to Kemi's world of faith, family, and industry.
+              </p>
               <div className="flex items-center w-full gap-2 py-4">
                 <div className="w-13 h-13 rounded-full bg-[#C0840B] flex items-center justify-center flex-shrink-0">
                   <span className={`${sora.className} text-white text-xl font-semibold`}>CO</span>
@@ -483,11 +494,11 @@ export default function Home() {
                   <span className="text-[#EFB94C]"><FaStar /></span>
                   <span className="text-[#555555CC]"><FaRegStar /></span>
                 </div>
-                < PiQuotesFill className="text-[#C0840B26] text-3xl"/>
+                < PiQuotesFill className="text-[#C0840B26] text-3xl" />
               </div>
-                <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
-                  New Dawn, Same Fire: A Journey of Unfiltered Grace takes you through the world of corporate boardrooms and the quiet, heavy moments of a home held together by faith and resolve. On its pages you feel the weight of every pillar that stood firm and the courage behind every support that changed it all. At the very heart of this journey is a celebration of the woman who started it all: the author's mother. This book beautifully honours the woman who... didn't just raise a daughter, but mentored a visionary, passing down the sharp business instincts and the moral gauge that define her today. Look forward to the special section on experiential boardroom lessons for the younger generation of career women.
-                </p>
+              <p className={` ${sora.className} text-sm leading-relaxed text-[#555555CC] text-start md:text-base`}>
+                New Dawn, Same Fire: A Journey of Unfiltered Grace takes you through the world of corporate boardrooms and the quiet, heavy moments of a home held together by faith and resolve. On its pages you feel the weight of every pillar that stood firm and the courage behind every support that changed it all. At the very heart of this journey is a celebration of the woman who started it all: the author's mother. This book beautifully honours the woman who... didn't just raise a daughter, but mentored a visionary, passing down the sharp business instincts and the moral gauge that define her today. Look forward to the special section on experiential boardroom lessons for the younger generation of career women.
+              </p>
               <div className="flex items-center w-full gap-2 py-4">
                 <div className="w-13 h-13 rounded-full bg-[#418AF2] flex items-center justify-center flex-shrink-0">
                   <span className={`${sora.className} text-white text-xl font-semibold`}>SS</span>
@@ -498,7 +509,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
           </div>
 
           <div className="w-full px-0 md:px-[10%] mt-[10%]">
@@ -634,14 +645,14 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-4 pt-10 md:grid-cols-[1fr_1.5fr] md:items-stretch">
-            
+
             <div id="story" className="bg-[#FFFFFF] rounded-2xl flex h-full flex-col justify-between items-center min-h-[286px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
               <div>
-                  <h4 className={`${sora.className} text-[#260406] text-sm font-semibold`}>Ways to support the MOTO Foundation</h4>
-                  <p className={`${sora.className} mt-3 text-xs leading-relaxed text-justify text-[#555555]`}>
-                    Contributions to the MOTO Foundation can be made using the account details provided below.
-                  </p>
-                </div>
+                <h4 className={`${sora.className} text-[#260406] text-sm font-semibold`}>Ways to support the MOTO Foundation</h4>
+                <p className={`${sora.className} mt-3 text-xs leading-relaxed text-justify text-[#555555]`}>
+                  Contributions to the MOTO Foundation can be made using the account details provided below.
+                </p>
+              </div>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 items-start w-full py-3">
                 <div className="w-12 h-12 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
                   <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><RiContactsLine /></span>
@@ -663,14 +674,14 @@ export default function Home() {
               <div className="bg-[#FFFFFF] rounded-xl flex items-center gap-2 justify-between items-start w-full py-3">
                 <div className="flex gap-2">
                   <div className="w-12 h-12 rounded-lg bg-[#C0840B1A] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><IoWalletOutline /></span>
+                    <span className="text-[#D5AD5D] text-2xl border-[#C0840B1A]"><IoWalletOutline /></span>
+                  </div>
+                  <div className="flex flex-col items-start">
+                    <span className={`${sora.className} text-[#555555CC] text-sm`}>Account Number</span>
+                    <span className={`${sora.className} text-[#0F172A] text-lg`}>0176530649</span>
+                  </div>
                 </div>
-                <div className="flex flex-col items-start">
-                  <span className={`${sora.className} text-[#555555CC] text-sm`}>Account Number</span>
-                  <span className={`${sora.className} text-[#0F172A] text-lg`}>0176530649</span>
-                </div>
-                </div>
-                
+
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText("0176530649");
@@ -681,7 +692,7 @@ export default function Home() {
                   aria-label="Copy account number"
                 >
                   {copied ? <IoIosCheckmarkCircle className="text-green-600 text-xl" /> : <IoCopyOutline className="text-xl" />}
-                Copy</button>
+                  Copy</button>
               </div>
             </div>
             <div className="flex h-full w-full max-w-full items-stretch justify-center self-stretch">
