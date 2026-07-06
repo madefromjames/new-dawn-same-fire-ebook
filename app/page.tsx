@@ -54,6 +54,31 @@ function useCountUp(target: number, duration: number = 1500, start: boolean = fa
 
   return count;
 }
+
+function useInView(threshold: number = 0.25, rootMargin: string = "0px 0px -10% 0px") {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold, rootMargin }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [threshold, rootMargin]);
+
+  return { ref, isVisible };
+}
 export default function Home() {
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
@@ -61,25 +86,13 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
-  const statsRef = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const { ref: heroRef, isVisible: isHeroVisible } = useInView(0.2);
+  const { ref: statsRef, isVisible: hasAnimated } = useInView(0.35);
+  const { ref: foundationRef, isVisible: isFoundationVisible } = useInView(0.2);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-        }
-      },
-      { threshold: 0.4 }
-    );
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
-  }, [hasAnimated]);
-
-  const downloads = useCountUp(15020, 1500, hasAnimated);
-  const readers = useCountUp(20020, 1500, hasAnimated);
-  const reviews = useCountUp(16020, 1500, hasAnimated);
+  const downloads = useCountUp(200, 900, hasAnimated);
+  const readers = useCountUp(100, 1100, hasAnimated);
+  const reviews = useCountUp(48, 1100, hasAnimated);
   const openRequestModal = () => setIsRequestModalOpen(true);
   const closeRequestModal = () => setIsRequestModalOpen(false);
   const openLegacyModal = () => setIsLegacyModalOpen(true);
@@ -149,28 +162,22 @@ export default function Home() {
       </header>
 
       <main className="flex flex-col items-center overflow-x-hidden mt-26 md:mt-40 md:pt-0">
-        {/* <div className="mt-8 flex h-[36px] w-fit max-w-[92vw] items-center justify-center gap-[2px] whitespace-nowrap rounded-[30px] border border-[#E5E7EB] bg-white px-[18px] py-[6px] md:mt-10 md:w-[232px] md:px-[25px]">
-          <span className={`${dancing.className} text-green-600 italic font-dancing`}>
-            Exclusive Access
-          </span>
-          <span className="text-[#C0840B80]"><IoIosStar /></span ><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span><span className="text-[#C0840B80]"><IoIosStar /></span>
-        </div> */}
-        <div className="px-4 text-center md:px-0">
-          <h1 className={`${fruances.className} text-2xl leading-[44px] font-semibold text-center md:text-[72px] md:leading-[72px]`}><span className="text-[#280506]">NEW DAWN,</span> <span className="text-[#C0840B]"><i>SAME FIRE</i></span></h1>
-          <p className={`${sora.className} mx-auto mt-2 max-w-2xl text-sm leading-6 text-[#555555] md:text-base`}>
+        <div ref={heroRef} className="px-4 text-center md:px-0">
+          <h1 className={`${fruances.className} text-2xl leading-[44px] font-semibold text-center transition-all duration-700 ease-out md:text-[72px] md:leading-[72px] ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}><span className="text-[#280506]">NEW DAWN,</span> <span className="text-[#C0840B]"><i>SAME FIRE</i></span></h1>
+          <p className={`${sora.className} mx-auto mt-2 max-w-2xl text-sm leading-6 text-[#555555] transition-all delay-150 duration-700 ease-out md:text-base ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
             The words you need today might be waiting on the very next page—claim your free copy and start reading today.
           </p>
         </div>
 
-        <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} md:w-auto md:flex-row md:px-0`}>
-          <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] hover:bg-[#C0840B]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
+        <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} transition-all delay-300 duration-700 ease-out md:w-auto md:flex-row md:px-0 ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+          <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
           </a>
-          <button onClick={openRequestModal} className="bg-[#C0840B1A] hover:bg-[#C0840B1A]/30 flex w-full items-center justify-center cursor-pointer border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
+          <button onClick={openRequestModal} className="bg-[#C0840B1A] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B1A]/30 flex w-full items-center justify-center cursor-pointer border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
             <span><GiOpenBook /></span> <span>Request A Free Hard Copy</span>
           </button>
         </div>
-        <div className="relative mt-8 h-[52vh] w-full overflow-hidden md:h-[205vh]">
+        <div className={`relative mt-8 h-[52vh] w-full overflow-hidden transition-all duration-700 ease-out md:h-[205vh] ${isHeroVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-[0.98]"}`}>
           <Image
             src="/kemiolumuyiwa.png"
             alt="New Dawn, Same Fire"
@@ -179,19 +186,19 @@ export default function Home() {
             priority
           />
         </div>
-        <section className="w-full bg-[#260406] py-4 px-4 text-center md:py-10 md:px-[25%]">
+        <section ref={statsRef} className={`w-full bg-[#260406] py-4 px-4 text-center transition-all duration-700 ease-out md:py-10 md:px-[25%] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="grid grid-cols-3 gap-6 sm:grid-cols-3">
             <div>
-              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${downloads.toLocaleString()}+` : "200+"}</h2>
+              <h2 className={`${fruances.className} text-2xl font-normal text-[#FFEECC] transition-all duration-500 md:text-[56px] md:leading-[84px] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>{hasAnimated ? `${downloads.toLocaleString()}+` : "0+"}</h2>
               <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Downloads</p>
             </div>
             <div>
-              <h2 className={`${fruances.className} text-2xl  font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${readers.toLocaleString()}+` : "100%"}</h2>
-              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Authentic Feedack</p>
+              <h2 className={`${fruances.className} text-2xl  font-normal text-[#FFEECC] transition-all delay-100 duration-500 md:text-[56px] md:leading-[84px] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>{hasAnimated ? `${readers.toLocaleString()}%` : "0%"}</h2>
+              <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Authentic Feedback</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-1">
-                <h2 className={`${fruances.className} text-2xl font-normal text-[#FFEECC] md:text-[56px] md:leading-[84px]`}>{hasAnimated ? `${reviews.toLocaleString()}+` : "4.8"}</h2>
+                <h2 className={`${fruances.className} text-2xl font-normal text-[#FFEECC] transition-all delay-200 duration-500 md:text-[56px] md:leading-[84px] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>{hasAnimated ? `${(reviews / 10).toFixed(1)}` : "4.8"}</h2>
                 <span className="text-[#FFEECC] text-sm md:text-2xl"><FaStar /></span>
               </div>
               <p className={`${sora.className} text-[11px] text-[#E6E6E6] md:text-[18px] md:leading-[27px]`}>Average Rating</p>
@@ -201,7 +208,7 @@ export default function Home() {
 
         <section id="about" className="w-full bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-3 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
             <div className="w-full px-0 md:px-[10%]">
               <h3 className={`${fruances.className} text-[18px] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>
                 <i>What Is <span>New Dawn, Same Fire</span> About?</i>
@@ -255,7 +262,7 @@ export default function Home() {
 
         <section className="w-full bg-[#240406] mb-10 px-4 py-12 text-center md:px-[10%] md:py-[10%]">
           <div id="qr-section" className="mx-auto flex max-w-5xl flex-col items-center">
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#7CD9A0]`}>GET STARTED</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-3 text-[#7CD9A0]`}>GET STARTED</h2>
             <div className="w-full px-0 text-center md:px-[10%]">
               <h3 className={`${fruances.className} text-[18px] leading-[38px] md:mb-4 md:text-[36px] text-[#E6E6E6] md:leading-[54px]`}>
                 <i>Choose Your Copy</i>
@@ -320,7 +327,7 @@ export default function Home() {
             {/* Author Image */}
 
             {/* Message */}
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>OTHER BOOKS</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-3 text-[#1B5E35]`}>OTHER BOOKS</h2>
             <div className="w-full px-0 md:px-[10%]">
               <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>More from Kemi Olumuyiwa</h3>
               <p className={` ${sora.className} mx-auto max-w-sm text-sm leading-6 text-[#555555] md:text-base`}>
@@ -371,12 +378,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="review" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section id="review" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center md:px-[10%] ">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
             {/* Message */}
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>REVIEWS</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal md:mb-3 text-center text-[#1B5E35]`}>REVIEWS</h2>
             <div className="w-full px-0 md:px-[10%]">
               <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>What Readers Are Saying</h3>
               <p className={` ${sora.className} mx-auto max-w-xs text-sm leading-6 text-[#555555] md:text-base`}>
@@ -496,7 +503,7 @@ export default function Home() {
 
           <div className="w-full px-0 md:px-[10%] mt-[10%]">
             <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Inspired by what readers are saying?</h3>
-            <p className={` ${sora.className} mx-auto max-w-2xs md:max-w-xs text-sm leading-6 text-[#555555] md:text-base`}>
+            <p className={` ${sora.className} mx-auto max-w-2xs md:max-w-xs md:mb-10 text-sm leading-6 text-[#555555] md:text-base`}>
               Download your free copy and discover why readers are recommending <span className="text-[#C0840B] text-semibold">New Dawn, Same Fire.</span>
             </p>
           </div>
@@ -564,28 +571,13 @@ export default function Home() {
             />
           </div>
 
-          {/* Text and Icons - after image on mobile, left side on desktop */}
-          {/* <div className="order-2 md:order-1 flex flex-col w-full md:w-1/2 text-center md:text-left"> */}
-            {/* Headings - desktop only */}
-            {/* <h2 className={`${sora.className} hidden md:block text-xl font-normal text-[#1B5E35] mb-4`}>ABOUT AUTHOR</h2>
-            <h2 className={`${fruances.className} hidden md:block italic text-3xl font-normal text-[#260406] mb-4`}>Meet Kemi Olumuyiwa</h2>
-
-            <p className={`${sora.className} text-sm w-full md:text-base leading-relaxed mb-4 text-[#555555] `}>
-              Author, mentor, leader, speaker, and advocate for grace, resilience, and personal transformation.
-              Through her journey, she has inspired many to embrace change, rediscover purpose, and keep the fire within burning.
-            </p>
-            <p className={`${sora.className} text-sm md:text-base mb-6 text-[#555555]`}>
-              New Dawn, Same Fire is her testimony that no matter the season, grace always makes a way..
-            </p>            
-          </div> */}
-
         </section>
 
-        <section id="legacy" className="w-full mb-10 bg-white px-4 py-12 text-center md:py-[10%]">
+        <section id="legacy" className="w-full mb-10 bg-white px-4 py-12 text-center md:pt-[10%]">
           <div className="mx-auto flex max-w-5xl flex-col items-center">
 
             {/* Message */}
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-6 text-[#1B5E35]`}>LEGACY OF IMPACT</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-3 text-[#1B5E35]`}>LEGACY OF IMPACT</h2>
             <div className="w-full px-0 md:px-[10%]">
               <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Vintage Fabric: A Life Of Sacrifice</h3>
             </div>
@@ -630,9 +622,9 @@ export default function Home() {
 
         </section>
 
-        <section id="foundation" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 md:px-[10%] md:py-[10%]">
+        <section id="foundation" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 md:px-[10%] md:pb-[10%]">
           <div className="flex max-w-5xl flex-col items-start">
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal md:mb-6 text-[#1B5E35]`}>MOTO FOUNDATION</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal text-[#1B5E35]`}>MOTO FOUNDATION</h2>
             <div className="w-full px-0 items-start">
               <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Making a difference where it matters most</h3>
               <p className={` ${sora.className} max-w-xl text-sm leading-6 text-[#555555] md:text-base`}>
@@ -641,9 +633,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] md:items-stretch gap-4 pt-10">
+          <div className="grid grid-cols-1 gap-4 pt-10 md:grid-cols-[1fr_1.5fr] md:items-stretch">
             
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl flex flex-col justify-between items-center min-h-[286px]" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl flex h-full flex-col justify-between items-center min-h-[286px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
               <div>
                   <h4 className={`${sora.className} text-[#260406] text-sm font-semibold`}>Ways to support the MOTO Foundation</h4>
                   <p className={`${sora.className} mt-3 text-xs leading-relaxed text-justify text-[#555555]`}>
@@ -692,11 +684,11 @@ export default function Home() {
                 Copy</button>
               </div>
             </div>
-            <div className="items-stretch flex justify-center max-w-full self-stretch w-full">
+            <div className="flex h-full w-full max-w-full items-stretch justify-center self-stretch">
               <Image
                 src="/children.jpg"
                 alt="Children"
-                className="h-[286px] w-full rounded-xl object-cover object-center"
+                className="h-full min-h-[286px] w-full rounded-xl object-cover object-center transition-transform duration-700 ease-out hover:scale-[1.02]"
                 width={752}
                 height={286}
               />
