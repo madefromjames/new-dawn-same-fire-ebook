@@ -597,11 +597,23 @@ export default function Home() {
 
           <div id="legacy" className="mx-auto w-full max-w-5xl rounded-2xl gap-4 bg-[#FFFFFF] p-3">
             <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+              <div className="overflow-hidden rounded-xl bg-white shadow-sm">
+                <Image
+                  src="/mutajero_gbemi.jpg"
+                  alt="Mutajero Gbemi"
+                  className="h-full w-full object-cover object-center"
+                  width={667}
+                  height={760}
+                />
+              </div>
               <div className="flex flex-col gap-4 rounded-xl bg-[#FFFFFF] text-start">
                 <div>
                   <h4 className={`${sora.className}  text-[#260406] font-semibold`}>Florence Mutajero Gbeminiyi (Nee OshO)</h4>
                   <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555] md:text-base`}>
                     Imagine for a second, all humans were created as attires; different fabrics, different textures, different colours. What kind of outfit would Maama be? One thing is sure, she’ll be the cynosure of all eyes, a timeless piece of clothing, detailed in cut and thorough in finishing.
+                  </p><br />
+                  <p className={`${sora.className} mt-3 text-sm leading-relaxed text-justify text-[#555555] md:text-base`}>
+                    In March 1930, the Master Designer and Tailor of Destiny- God Almighty, created one of his best pieces when the world welcomed the arrival of a beautiful damsel in Ogere town, Remo, Ogun State, christened Mutajero Florence Gbeminyi Osho. Mama journeyed into this world through Sanusi and Orebowale Osho amongst four other siblings. At the tender age of 12, she left home to live with her aunt in Lagos who schooled her in trade and thus began a lifelong illustrious career in business. Her early sales acumen was built on merchandise in rice milling.
                   </p>
                 </div>
                 <button
@@ -610,24 +622,6 @@ export default function Home() {
                 >
                   Read Full Story
                 </button>
-                <div className="overflow-hidden rounded-xl bg-white">
-                  <Image
-                    src="/mutajero.jpg"
-                    alt="Mutajero"
-                    className="h-full w-full object-cover object-top"
-                    width={350}
-                    height={520}
-                  />
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-xl bg-white shadow-sm">
-                <Image
-                  src="/mutajero_gbeminiyi.jpg"
-                  alt="Mutajero Gbeminiyi"
-                  className="h-full w-full object-cover object-center"
-                  width={601}
-                  height={760}
-                />
               </div>
             </div>
           </div>
@@ -689,17 +683,20 @@ export default function Home() {
                     setCopied(true);
                     setTimeout(() => setCopied(false), 2000);
                   }}
-                  className="flex items-center gap-2 border-2 border-[#C0840B66] flex-shrink-0 rounded-xl bg-[#FEF9EE1A] p-2 text-[#C0840B] hover:bg-[#C0840B]/20"
-                  aria-label="Copy account number"
+                  className={`${sora.className} flex items-center gap-2 border-2 border-[#C0840B66] flex-shrink-0 rounded-xl bg-[#FEF9EE1A] p-2 text-[#C0840B] hover:bg-[#C0840B]/20"
+                  aria-label="Copy account number`}
                 >
                   {copied ? <IoIosCheckmarkCircle className="text-green-600 text-xl" /> : <IoCopyOutline className="text-xl" />}
                   Copy</button>
               </div>
+              <div className={`${sora.className} bg-[#F9F5EE] py-4 px-10 rounded-xl text-xl text-center text-[#260406B2]`}>
+                <p>Thank you sincerely for your support.</p>
+              </div>
             </div>
             <div className="flex h-full w-full max-w-full items-stretch justify-center self-stretch">
               <Image
-                src="/children.jpg"
-                alt="Children"
+                src="/kemi_speech.jpg"
+                alt="Kemiolumuyiwa giving speech"
                 className="h-full min-h-[286px] w-full rounded-xl object-cover object-center transition-transform duration-700 ease-out hover:scale-[1.02]"
                 width={752}
                 height={286}
