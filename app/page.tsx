@@ -86,14 +86,15 @@ export default function Home() {
   const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const HoverEffect = dynamic(
-    () => import("@/components/ui/card-hover-effect").then(mod => mod.HoverEffect),
-    { ssr: false }
-  );
   const EncryptedText = dynamic(
     () => import("@/components/ui/encrypted-text").then(mod => mod.EncryptedText),
     { ssr: false }
   );
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
   const { ref: heroRef, isVisible: isHeroVisible } = useInView(0.2);
