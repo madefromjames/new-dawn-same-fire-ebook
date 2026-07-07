@@ -139,7 +139,7 @@ export default function Home() {
   const { ref: aboutRef, isVisible: isAboutVisible } = useInView(0.2);
   const { ref: qrRef, isVisible: isQrVisible } = useInView(0.2);
   const { ref: booksRef, isVisible: isBooksVisible } = useInView(0.2);
-  const { ref: reviewRef, isVisible: isReviewVisible } = useInView(0.2);
+  const { ref: reviewRef, isVisible: isReviewVisible } = useInView(0.12, "0px 0px -20% 0px");
   const { ref: legacyRef, isVisible: isLegacyVisible } = useInView(0.2);
   const { ref: foundationRef, isVisible: isFoundationVisible } = useInView(0.2);
 
@@ -435,22 +435,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={reviewRef} id="review" className={`w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center transition-all duration-500 ease-out md:px-[10%] ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+        <section ref={reviewRef} id="review" className={`w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center transition-all duration-300 ease-out md:px-[10%] ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
             {/* Message */}
-            <h2 className={`${sora.className} text-sm md:text-xl font-normal md:mb-3 text-center text-[#1B5E35]`}>REVIEWS</h2>
+            <h2 className={`${sora.className} text-sm md:text-xl font-normal md:mb-3 text-center text-[#1B5E35] transition-all duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>REVIEWS</h2>
             <div className="w-full px-0 md:px-[10%]">
-              <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>What Readers Are Saying</h3>
-              <p className={` ${sora.className} mx-auto max-w-xs text-sm leading-6 text-[#555555] md:text-base`}>
+              <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px] transition-all delay-75 duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>What Readers Are Saying</h3>
+              <p className={` ${sora.className} mx-auto max-w-xs text-sm leading-6 text-[#555555] transition-all delay-100 duration-300 ease-out md:text-base ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>
                 Real feedback from readers whose lives have been inspired by New Dawn, Same Fire.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] md:items-stretch gap-4 pt-10">
-            <div className="md:order-3 items-stretch flex justify-center h-full max-w-full self-stretch w-full">
+            <div className={`md:order-3 items-stretch flex justify-center h-full max-w-full self-stretch w-full transition-all duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
               <Image
                 src="/kemi_new_dawn.png"
                 alt="New Dawn, Same Fire"
@@ -459,7 +459,7 @@ export default function Home() {
                 height={379}
               />
             </div>
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-1" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className={`bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-1 transition-all duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`} style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
@@ -483,7 +483,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className={`bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-3 transition-all delay-75 duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`} style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
@@ -507,7 +507,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className={`bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between items-center md:order-3 transition-all delay-100 duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`} style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
@@ -531,7 +531,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between md:col-span-2 items-center md:w-full md:order-3" style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
+            <div id="story" className={`bg-[#FFFFFF] rounded-2xl p-3 flex flex-col justify-between md:col-span-2 items-center md:w-full md:order-3 transition-all delay-100 duration-300 ease-out ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`} style={{ padding: "18px 13px 25px 20px", gap: "10px" }}>
               <div className="bg-[#FFFFFF] rounded-xl flex items-center justify-between w-full py-3">
                 <div className="flex gap-1 items-start">
                   <span className="text-[#EFB94C]"><FaStar /></span>
