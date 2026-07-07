@@ -796,17 +796,13 @@ export default function Home() {
             <img src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+          <a href="https://www.threads.com/@olumuyiwa.oluwakemi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
             <img src="/thread.svg" alt="Thread" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
           <a href="https://www.facebook.com/share/17rhbWnKFx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
             <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
-          </a>
-          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
-            <img src="/youtube.svg" alt="YouTube" className="w-5 h-5" />
-            <span className={`${sora.className} text-xs text-white/70`}>kemioolumuyiwa2902</span>
           </a>
         </div>
 
