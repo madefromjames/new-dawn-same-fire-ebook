@@ -132,7 +132,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
+  const pdfUrl = "https://www.kemiolumuyiwa.com/new-dawn-same-fire.pdf"
 
   const { ref: heroRef, isVisible: isHeroVisible } = useInView(0.2);
   const { ref: statsRef, isVisible: hasAnimated } = useInView(0.35);
@@ -192,7 +192,7 @@ export default function Home() {
               <Link href="#foundation" className={navLinkClass("#foundation")}>Foundation</Link>
             </nav>
             <a
-              href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
+              href="https://www.kemiolumuyiwa.com/new-dawn-same-fire.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#C0840B] flex w-full items-center justify-center rounded py-3 my-6 gap-4 text-white md:w-auto md:px-7"
@@ -213,7 +213,7 @@ export default function Home() {
           <Link href="#review" className={navLinkClass("#review")}>Review</Link>
           <Link href="#foundation" className={navLinkClass("#foundation")}>Foundation</Link>
         </nav>
-        <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#280506] hover:bg-[#280509]/80 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
+        <a href="https://www.kemiolumuyiwa.com/new-dawn-same-fire.pdf" className="bg-[#280506] hover:bg-[#280509]/80 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
           <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
         </a>
       </header>
@@ -227,7 +227,7 @@ export default function Home() {
         </div>
 
         <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} transition-all delay-100 duration-300 ease-out md:w-auto md:flex-row md:px-0 ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-          <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
+          <a href="https://www.kemiolumuyiwa.com/new-dawn-same-fire.pdf" className="bg-[#C0840B] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
           </a>
           <button onClick={openRequestModal} className="bg-[#C0840B1A] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B1A]/30 flex w-full items-center justify-center cursor-pointer border border-[#C0840B4D] gap-4 rounded px-5 py-4 text-[#280506] md:w-auto md:px-7">
@@ -351,7 +351,7 @@ export default function Home() {
                   <li className="flex items-center gap-x-2 mb-2"><span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Mobile Friendly</span></li>
                   <li className="flex items-center gap-x-2 mb-2"> <span className=" text-[#1B5E35]"><IoIosCheckmarkCircle /></span><span>Read Anywhere</span></li>
                 </ul>
-                <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#240406] hover:bg-[#240406]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7`}>
+                <a href="https://www.kemiolumuyiwa.com/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#240406] hover:bg-[#240406]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7`}>
                   <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
                 </a>
               </div>
@@ -565,7 +565,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex justify-center text-center mt-4">
-            <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#240406] hover:bg-[#240406]/70 flex items-center mx-auto gap-4 rounded px-5 py-4 text-white md:px-7`}>
+            <a href="https://www.kemiolumuyiwa.com/new-dawn-same-fire.pdf" className={`${fruances.className} bg-[#240406] hover:bg-[#240406]/70 flex items-center mx-auto gap-4 rounded px-5 py-4 text-white md:px-7`}>
               <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
             </a>
           </div>
