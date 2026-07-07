@@ -176,8 +176,7 @@ export default function Home() {
         <div ref={heroRef} className="px-4 text-center md:px-0">
           <h1 className={`${fruances.className} text-2xl leading-[44px] font-semibold text-center transition-all duration-700 ease-out md:text-[72px] md:leading-[72px] ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}><span className="text-[#280506]">NEW DAWN,</span> <span className="text-[#C0840B]"><i>SAME FIRE</i></span></h1>
           <p className={`${sora.className} mx-auto mt-2 max-w-2xl text-sm leading-6 text-[#555555] transition-all delay-150 duration-700 ease-out md:text-base ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
-            The words you need today might be waiting on the very next page
-            <EncryptedText text="—claim your free copy and start reading today." />
+            The words you need today might be waiting on the very next page—claim your free copy and start reading today.
           </p>
         </div>
 
@@ -733,6 +732,36 @@ export default function Home() {
             </a>
           </div>
 
+        </div>
+
+        <div className="w-full px-0 mt-[10%] text-center">
+          <h3 className={`${fruances.className} italic text-[18px] text-[#C0840B] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Tag Us In Your Photos</h3>
+          <p className={` ${sora.className} mx-auto md:mb-10 text-sm leading-6 text-[#FFFFFFB2] md:text-base`}>
+            Posting pictures from the event? Click any of my social handles to Tag me so I can find and share them.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-8 mt-8">
+          <a href="https://www.tiktok.com/@babycharming0?_r=1&_t=ZN-97oN69FM9ul" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/tiktok.svg" alt="TikTok" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>babycharming0</span>
+          </a>
+          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
+          </a>
+          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/thread.svg" alt="Thread" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
+          </a>
+          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
+          </a>
+          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/youtube.svg" alt="YouTube" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>kemioolumuyiwa2902</span>
+          </a>
         </div>
 
         <div className="w-full text-5xl mt-8 md:text-9xl font-normal text-[#F9F5EE1A] text-center justify-between">
