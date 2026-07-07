@@ -39,6 +39,8 @@ const fruances = Fraunces({
   weight: ["300", "400", "600"], // include 600 for SemiBold
   style: ["normal", "italic"]
 });
+const NAV_SECTION_IDS = ["about", "books", "review", "foundation"] as const;
+
 function useCountUp(target: number, duration: number = 1500, start: boolean = false) {
   const [count, setCount] = useState(0);
 
@@ -86,19 +88,59 @@ export default function Home() {
   const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [activeHash, setActiveHash] = useState<string | null>(null);
   const EncryptedText = dynamic(
     () => import("@/components/ui/encrypted-text").then(mod => mod.EncryptedText),
     { ssr: false }
   );
-  const [mounted, setMounted] = useState(false);
+
+  const sectionVisibility = useRef<Record<string, number>>({});
 
   useEffect(() => {
-    setMounted(true);
+    const elements = NAV_SECTION_IDS
+      .map((sectionId) => document.getElementById(sectionId))
+      .filter((element): element is HTMLElement => Boolean(element));
+
+    if (elements.length === 0) return;
+
+    const updateActiveSection = () => {
+      const activeSection = NAV_SECTION_IDS
+        .map((sectionId) => ({ sectionId, ratio: sectionVisibility.current[sectionId] ?? 0 }))
+        .filter(({ ratio }) => ratio > 0)
+        .sort((left, right) => right.ratio - left.ratio || NAV_SECTION_IDS.indexOf(left.sectionId) - NAV_SECTION_IDS.indexOf(right.sectionId))[0];
+
+      setActiveHash(activeSection ? `#${activeSection.sectionId}` : null);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const sectionId = (entry.target as HTMLElement).id;
+          sectionVisibility.current[sectionId] = entry.isIntersecting ? entry.intersectionRatio : 0;
+        }
+
+        updateActiveSection();
+      },
+      {
+        threshold: [0, 0.15, 0.3, 0.45, 0.6],
+        rootMargin: "-22% 0px -45% 0px",
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
   }, []);
+
   const pdfUrl = "https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
 
   const { ref: heroRef, isVisible: isHeroVisible } = useInView(0.2);
   const { ref: statsRef, isVisible: hasAnimated } = useInView(0.35);
+  const { ref: aboutRef, isVisible: isAboutVisible } = useInView(0.2);
+  const { ref: qrRef, isVisible: isQrVisible } = useInView(0.2);
+  const { ref: booksRef, isVisible: isBooksVisible } = useInView(0.2);
+  const { ref: reviewRef, isVisible: isReviewVisible } = useInView(0.2);
+  const { ref: legacyRef, isVisible: isLegacyVisible } = useInView(0.2);
   const { ref: foundationRef, isVisible: isFoundationVisible } = useInView(0.2);
 
   const downloads = useCountUp(200, 900, hasAnimated);
@@ -108,6 +150,10 @@ export default function Home() {
   const closeRequestModal = () => setIsRequestModalOpen(false);
   const openLegacyModal = () => setIsLegacyModalOpen(true);
   const closeLegacyModal = () => setIsLegacyModalOpen(false);
+  const navLinkClass = (hash: string) => {
+    const isActive = activeHash === hash;
+    return `${fruances.className} rounded-full px-3 py-2 transition-colors duration-300 ${isActive ? "bg-[#C0840B1A] text-[#C0840B]" : "text-[#555555] hover:bg-[#C0840B0D] hover:text-[#C0840B]"}`;
+  };
   const handleRequestSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     closeRequestModal();
@@ -139,11 +185,11 @@ export default function Home() {
                 ✕
               </button>
             </div>
-            <nav className="flex flex-col gap-3 text-sm text-[#555555] hover:text-[#C0840B]">
-              <Link href="#about">About</Link>
-              <Link href="#review">Review</Link>
-              <Link href="#books">Books</Link>
-              <Link href="#foundation">Foundation</Link>
+            <nav className="flex flex-col gap-3 text-sm">
+              <Link href="#about" className={navLinkClass("#about")}>About</Link>
+              <Link href="#review" className={navLinkClass("#review")}>Review</Link>
+              <Link href="#books" className={navLinkClass("#books")}>Books</Link>
+              <Link href="#foundation" className={navLinkClass("#foundation")}>Foundation</Link>
             </nav>
             <a
               href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf"
@@ -162,10 +208,10 @@ export default function Home() {
       <header className={` hidden md:flex bg-white ${fruances.className} fixed top-0 right-0 left-0 z-50 flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:px-20`}>
         <a href="#"><span className={`${dancing.className} text-xl font-bold text-[#280506] italic`}>Kemi Olumuyiwa</span></a>
         <nav className="flex flex-wrap justify-center gap-4 md:flex-1 md:gap-5">
-          <Link href="#about" className="text-[#555555] hover:text-[#C0840B]">About</Link>
-          <Link href="#books" className="text-[#555555] hover:text-[#C0840B]">Books</Link>
-          <Link href="#review" className="text-[#555555] hover:text-[#C0840B]">Review</Link>
-          <Link href="#foundation" className="text-[#555555] hover:text-[#C0840B]">Foundation</Link>
+          <Link href="#about" className={navLinkClass("#about")}>About</Link>
+          <Link href="#books" className={navLinkClass("#books")}>Books</Link>
+          <Link href="#review" className={navLinkClass("#review")}>Review</Link>
+          <Link href="#foundation" className={navLinkClass("#foundation")}>Foundation</Link>
         </nav>
         <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#280506] hover:bg-[#280509]/80 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
           <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
@@ -174,13 +220,13 @@ export default function Home() {
 
       <main className="flex flex-col items-center overflow-x-hidden mt-26 md:mt-40 md:pt-0">
         <div ref={heroRef} className="px-4 text-center md:px-0">
-          <h1 className={`${fruances.className} text-2xl leading-[44px] font-semibold text-center transition-all duration-700 ease-out md:text-[72px] md:leading-[72px] ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}><span className="text-[#280506]">NEW DAWN,</span> <span className="text-[#C0840B]"><i>SAME FIRE</i></span></h1>
-          <p className={`${sora.className} mx-auto mt-2 max-w-2xl text-sm leading-6 text-[#555555] transition-all delay-150 duration-700 ease-out md:text-base ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+          <h1 className={`${fruances.className} text-2xl leading-[44px] font-semibold text-center transition-all duration-300 ease-out md:text-[72px] md:leading-[72px] ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}><span className="text-[#280506]">NEW DAWN,</span> <span className="text-[#C0840B]"><i>SAME FIRE</i></span></h1>
+          <p className={`${sora.className} mx-auto mt-2 max-w-2xl text-sm leading-6 text-[#555555] transition-all delay-75 duration-300 ease-out md:text-base ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
             The words you need today might be waiting on the very next page—claim your free copy and start reading today.
           </p>
         </div>
 
-        <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} transition-all delay-300 duration-700 ease-out md:w-auto md:flex-row md:px-0 ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+        <div className={`mt-12 flex w-full flex-col gap-3 px-4 ${fruances.className} transition-all delay-100 duration-300 ease-out md:w-auto md:flex-row md:px-0 ${isHeroVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
           <a href="https://new-dawn-same-fire-ebook-tau.vercel.app/new-dawn-same-fire.pdf" className="bg-[#C0840B] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B]/70 flex w-full items-center justify-center gap-4 rounded px-5 py-4 text-white md:w-auto md:px-7">
             <span><TbDownload /></span><span className="text-[#FFFFFF]">Download Free Soft Copy</span>
           </a>
@@ -188,7 +234,7 @@ export default function Home() {
             <span><GiOpenBook /></span> <span>Request A Free Hard Copy</span>
           </button>
         </div>
-        <div className={`relative mt-8 h-[52vh] w-full overflow-hidden transition-all duration-700 ease-out md:h-[205vh] ${isHeroVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-[0.98]"}`}>
+        <div className={`relative mt-8 h-[52vh] w-full overflow-hidden transition-all duration-400 ease-out md:h-[205vh] ${isHeroVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-6 opacity-0 scale-[0.99]"}`}>
           <Image
             src="/kemiolumuyiwa.png"
             alt="New Dawn, Same Fire"
@@ -197,7 +243,7 @@ export default function Home() {
             priority
           />
         </div>
-        <section ref={statsRef} className={`w-full bg-[#260406] py-4 px-4 text-center transition-all duration-700 ease-out md:py-10 md:px-[25%] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+        <section ref={statsRef} className={`w-full bg-[#260406] py-4 px-4 text-center transition-all duration-500 ease-out md:py-10 md:px-[25%] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="grid grid-cols-3 gap-6 sm:grid-cols-3">
             <div>
               <h2 className={`${fruances.className} text-2xl font-normal text-[#FFEECC] transition-all duration-500 md:text-[56px] md:leading-[84px] ${hasAnimated ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"}`}>{hasAnimated ? `${downloads.toLocaleString()}+` : "0+"}</h2>
@@ -217,7 +263,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="w-full bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section ref={aboutRef} id="about" className={`w-full bg-white px-4 py-12 text-center transition-all duration-500 ease-out md:px-[10%] md:py-[10%] ${isAboutVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-3 text-[#1B5E35]`}>ABOUT THE BOOK</h2>
             <div className="w-full px-0 md:px-[10%]">
@@ -271,7 +317,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full bg-[#240406] mb-10 px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section ref={qrRef} className={`w-full bg-[#240406] mb-10 px-4 py-12 text-center transition-all duration-500 ease-out md:px-[10%] md:py-[10%] ${isQrVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div id="qr-section" className="mx-auto flex max-w-5xl flex-col items-center">
             <h2 className={`${sora.className} text-sm md:text-xl font-normal text-center md:mb-3 text-[#7CD9A0]`}>GET STARTED</h2>
             <div className="w-full px-0 text-center md:px-[10%]">
@@ -333,7 +379,7 @@ export default function Home() {
 
         </section>
 
-        <section id="books" className="w-full mb-10 bg-white px-4 py-12 text-center md:px-[10%] md:py-[10%]">
+        <section ref={booksRef} id="books" className={`w-full mb-10 bg-white px-4 py-12 text-center transition-all duration-500 ease-out md:px-[10%] md:py-[10%] ${isBooksVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
@@ -389,7 +435,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="review" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center md:px-[10%] ">
+        <section ref={reviewRef} id="review" className={`w-full mb-10 bg-[#F9F5EE] px-4 py-12 text-center transition-all duration-500 ease-out md:px-[10%] ${isReviewVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="mx-auto flex max-w-5xl flex-col items-center">
             {/* Author Image */}
 
@@ -584,7 +630,7 @@ export default function Home() {
 
         </section>
 
-        <section id="legacy" className="w-full mb-10 bg-white px-4 py-12 text-center md:pt-[10%]">
+        <section ref={legacyRef} id="legacy" className={`w-full mb-10 bg-white px-4 py-12 text-center transition-all duration-500 ease-out md:pt-[10%] ${isLegacyVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="mx-auto flex max-w-5xl flex-col items-center">
 
             {/* Message */}
@@ -627,7 +673,7 @@ export default function Home() {
 
         </section>
 
-        <section id="foundation" className="w-full mb-10 bg-[#F9F5EE] px-4 py-12 md:px-[10%] md:pb-[10%]">
+        <section ref={foundationRef} id="foundation" className={`w-full mb-10 bg-[#F9F5EE] px-4 py-12 transition-all duration-500 ease-out md:px-[10%] md:pb-[10%] ${isFoundationVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
           <div className="flex max-w-5xl flex-col items-start">
             <h2 className={`${sora.className} text-sm md:text-xl font-normal text-[#1B5E35]`}>MOTO FOUNDATION</h2>
             <div className="w-full px-0 items-start">
@@ -640,7 +686,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 gap-4 pt-10 md:grid-cols-[1fr_1.5fr] md:items-stretch">
 
-            <div id="story" className="bg-[#FFFFFF] rounded-2xl flex h-full flex-col justify-between items-center min-h-[286px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
+            <div id="story" className="bg-[#FFFFFF] rounded-2xl flex h-full flex-col justify-between items-center min-h-[286px]" style={{ padding: "24px 23px 12.5px 24px", gap: "" }}>
               <div>
                 <h4 className={`${sora.className} text-[#260406] text-sm font-semibold`}>Ways to support the MOTO Foundation</h4>
                 <p className={`${sora.className} mt-3 text-xs leading-relaxed text-justify text-[#555555]`}>
@@ -696,7 +742,7 @@ export default function Home() {
               <Image
                 src="/kemi_speech.jpg"
                 alt="Kemiolumuyiwa giving speech"
-                className="h-full min-h-[286px] w-full rounded-xl object-cover object-center transition-transform duration-700 ease-out hover:scale-[1.02]"
+                className="h-full min-h-[286px] w-full rounded-xl object-cover object-center"
                 width={752}
                 height={286}
               />
@@ -746,7 +792,7 @@ export default function Home() {
             <img src="/tiktok.svg" alt="TikTok" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>babycharming0</span>
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+          <a href="https://www.instagram.com/olumuyiwa.oluwakemi?igsh=d2lpdnRqY3d6Ymp1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
             <img src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
@@ -754,7 +800,7 @@ export default function Home() {
             <img src="/thread.svg" alt="Thread" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
-          <a href="" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+          <a href="https://www.facebook.com/share/17rhbWnKFx/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
             <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
