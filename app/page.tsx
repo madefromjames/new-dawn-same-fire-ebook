@@ -689,7 +689,7 @@ export default function Home() {
                   {copied ? <IoIosCheckmarkCircle className="text-green-600 text-xl" /> : <IoCopyOutline className="text-xl" />}
                   Copy</button>
               </div>
-              <div className={`${sora.className} bg-[#F9F5EE] py-4 px-10 rounded-xl text-xl text-center text-[#260406B2]`}>
+              <div className={`${sora.className} bg-[#F9F5EE] py-4 px-10 rounded-xl text-xs md:text-xl text-center text-[#260406B2]`}>
                 <p>Thank you sincerely for your support.</p>
               </div>
             </div>
