@@ -804,6 +804,10 @@ export default function Home() {
             <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
+          <a href="https://youtube.com/@kemiolumuyiwa2902?si=qi5g3stvoevcCQP8" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/youtube.svg" alt="YouTube" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
+          </a>
         </div>
 
         <div className="w-full text-5xl mt-8 md:text-9xl font-normal text-[#F9F5EE1A] text-center justify-between">
