@@ -560,7 +560,7 @@ export default function Home() {
 
           <div className="w-full px-0 md:px-[10%] mt-[10%]">
             <h3 className={`${fruances.className} italic text-[18px] text-[#260406] leading-[38px] md:mb-4 md:text-[36px] md:leading-[54px]`}>Inspired by what readers are saying?</h3>
-            <p className={` ${sora.className} mx-auto max-w-2xs md:max-w-xs md:mb-10 text-sm leading-6 text-[#555555] md:text-base`}>
+            <p className={` ${sora.className} mx-auto max-w-md md:max-w-md md:mb-10 text-sm leading-6 text-[#555555] md:text-base`}>
               Download your free copy and discover why readers are recommending <span className="text-[#C0840B] text-semibold">New Dawn, Same Fire.</span>
             </p>
           </div>
