@@ -88,6 +88,7 @@ export default function Home() {
   const [isLegacyModalOpen, setIsLegacyModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeHash, setActiveHash] = useState<string | null>(null);
   const EncryptedText = dynamic(
     () => import("@/components/ui/encrypted-text").then(mod => mod.EncryptedText),
@@ -155,8 +156,11 @@ export default function Home() {
     return `${fruances.className} rounded-full px-3 py-2 transition-colors duration-300 ${isActive ? "bg-[#C0840B1A] text-[#C0840B]" : "text-[#555555] hover:bg-[#C0840B0D] hover:text-[#C0840B]"}`;
   };
   const handleRequestSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    closeRequestModal();
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      closeRequestModal();
+    }, 2000);
   };
 
   return (
@@ -917,22 +921,25 @@ export default function Home() {
               </button>
             </div>
 
-            <form onSubmit={handleRequestSubmit} className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-[#555555] md:col-span-1">
+            <form action="https://formspree.io/f/xqevreoy"
+              onSubmit={handleRequestSubmit}
+              method="POST"
+              className="mt-6 grid grid-cols-1 text-xl gap-4 md:grid-cols-2">
+              <label className="flex flex-col text-base gap-2 text-xl text-[#555555] md:col-span-1">
                 FULL NAME
-                <input required name="fullName" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="text" placeholder="e.g Adeola Bankole" />
+                <input required name="Full Name" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="text" placeholder="e.g Adeola Bankole" />
               </label>
-              <label className="flex flex-col gap-2 text-sm text-[#555555] md:col-span-1">
+              <label className="flex flex-col gap-2 text-xl text-[#555555] md:col-span-1">
                 PHONE NUMBER
-                <input required name="phone" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="tel" placeholder="08090930909" />
+                <input required name="Phone Number" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="tel" placeholder="08090930909" />
               </label>
-              <label className="flex flex-col gap-2 text-sm text-[#555555] md:col-span-2">
+              <label className="flex flex-col gap-2 text-xl text-[#555555] md:col-span-2">
                 DELIVERY ADDRESS
-                <textarea required name="address" rows={4} className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" placeholder="Street, city, state, zip code" />
+                <textarea required name="Address" rows={4} className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" placeholder="Street, city, state, zip code" />
               </label>
-              <label className="flex flex-col gap-2 text-sm text-[#555555] md:col-span-2">
+              <label className="flex flex-col gap-2 text-xl text-[#555555] md:col-span-2">
                 ADDITIONAL NOTE
-                <textarea name="note" rows={3} className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" placeholder="Optional details about your request" />
+                <textarea name="Additional Note" rows={3} className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" placeholder="Optional details about your request" />
               </label>
               <div className="flex flex-col gap-3 pt-2 md:col-span-2 md:flex-row md:justify-end">
                 <button type="submit" className={`${fruances.className}rounded-md bg-[#C0840B] px-5 py-3 text-white`}>
@@ -941,6 +948,11 @@ export default function Home() {
                 {/* <button type="button" onClick={closeRequestModal} className="rounded-md border border-[#D1D5DB] px-5 py-3 text-[#555555]">
                   Cancel
                 </button> */}
+                {isSubmitted && (
+                  <p className={`${sora.className} mt-4 text-center text-sm text-green-600`}>
+                    ✓ Request submitted! We'll be in touch shortly.
+                  </p>
+                )}
               </div>
             </form>
           </div>
