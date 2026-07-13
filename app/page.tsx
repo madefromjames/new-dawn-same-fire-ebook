@@ -775,12 +775,18 @@ export default function Home() {
             <Link href="#foundation" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
           </nav>
 
-          <div className="flex gap-x-3 items-center md:justify-start">
-            <a href="https://www.linkedin.com/in/kemiolumuyiwa?originalSubdomain=ng" className={`${fruances.className} text-sm md:text-lg text-white/60 hover:text-white italic`}>Click to Follow us on</a>
-            <a href="https://www.linkedin.com/in/kemiolumuyiwa?originalSubdomain=ng" aria-label="Linkedin" target="blank">
-              <span><img src="/linkedin.svg" className="size-8" alt="Linkedin" /></span>
-            </a>
+          <div className="flex flex-col gap-3 items-center md:justify-between">
+            <p className={`${fruances.className} text-sm md:text-lg text-[#E6E6E6CC]`}>Stay close to what I'm working on — books, the foundation, and life in between.</p>
+            <div className="flex gap-3">
+              <div className={`${sora.className} bg-[#FFFFFF1A] py-4 px-10 rounded-xl text-xs md:text-xl text-center text-[#E6E6E6]`}>
+                <p>kemiolumiya@gmail.com</p>
+              </div>
+              <div className={`${sora.className} bg-[#FFFFFF1A] py-4 px-10 rounded-xl text-xs md:text-xl text-center text-[#E6E6E6]`}>
+                <p>Join The List</p>
+              </div>
+            </div>
           </div>
+          
 
         </div>
 
@@ -808,9 +814,9 @@ export default function Home() {
             <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
             <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
           </a>
-          <a href="https://youtube.com/@kemiolumuyiwa2902?si=qi5g3stvoevcCQP8" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
-            <img src="/youtube.svg" alt="YouTube" className="w-5 h-5" />
-            <span className={`${sora.className} text-xs text-white/70`}>olumuyiwa.oluwakemi</span>
+          <a href="https://www.linkedin.com/in/kemiolumuyiwa?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[#F9F5EEB2] hover:bg-[#FFFFFF1A] p-2 rounded-xl">
+            <img src="/linkedin.svg" alt="YouTube" className="w-5 h-5" />
+            <span className={`${sora.className} text-xs text-white/70`}>Oluwakemi Olumuyiwa</span>
           </a>
         </div>
 
