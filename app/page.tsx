@@ -775,13 +775,12 @@ export default function Home() {
             <Link href="#foundation" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
           </nav>
 
-          <div className="flex flex-col gap-3 text-sm md:text-lg">
+          <div className="flex flex-col gap-3">
             <p className={`${fruances.className} text-[#E6E6E6CC]`}>Stay close to what I'm working on — books, the foundation, and life in between.</p>
             <div className="flex gap-3">
-                <p className={`${sora.className} bg-[#FFFFFF1A] text-[#E6E6E6] p-3 rounded-lg border border-[#E6E6E64D]`}>kemiolumiya@gmail.com</p>
-                <a href="#" className={`${fruances.className} bg-[#C0840B] text-[#FFFFFF] p-3 rounded-lg`}>Join The List</a>
-              </div>
-
+              <p className={`${sora.className} bg-[#FFFFFF1A] text-[#E6E6E6] p-3 rounded-lg border border-[#E6E6E64D]`}>kemiolumiya@gmail.com</p>
+              <a href="#" className={`${fruances.className} bg-[#C0840B] text-[#FFFFFF] py-3 px-4 rounded-lg text-nowrap`}>Join The List</a>
+            </div>
           </div>
 
 
