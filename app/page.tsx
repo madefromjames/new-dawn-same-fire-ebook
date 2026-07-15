@@ -775,16 +775,13 @@ export default function Home() {
             <Link href="#foundation" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
           </nav>
 
-          <div className="flex flex-col gap-3 items-center md:justify-between">
-            <p className={`${fruances.className} text-sm md:text-lg text-[#E6E6E6CC]`}>Stay close to what I'm working on — books, the foundation, and life in between.</p>
-            <div className="flex gap-3 items-stretch">
-              <div className={`${sora.className} bg-[#FFFFFF1A] py-2 px-10 rounded-xl text-xs md:text-xl flex items-center text-[#E6E6E6]`}>
-                <p>kemiolumiya@gmail.com</p>
+          <div className="flex flex-col gap-3 text-sm md:text-lg">
+            <p className={`${fruances.className} text-[#E6E6E6CC]`}>Stay close to what I'm working on — books, the foundation, and life in between.</p>
+            <div className="flex gap-3">
+                <p className={`${sora.className} bg-[#FFFFFF1A] text-[#E6E6E6] p-3 rounded-lg border border-[#E6E6E64D]`}>kemiolumiya@gmail.com</p>
+                <a href="#" className={`${fruances.className} bg-[#C0840B] text-[#FFFFFF] p-3 rounded-lg`}>Join The List</a>
               </div>
-              <a href="#" className={`${fruances.className} bg-[#C0840B] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C0840B]/70 flex items-center justify-center gap-4 rounded px-5 py-4 text-white md:px-7`}>
-                Join The List
-              </a>
-            </div>
+
           </div>
 
 
