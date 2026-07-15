@@ -775,7 +775,7 @@ export default function Home() {
             <Link href="#foundation" className="text-[#E6E6E6]/60 hover:text-white">Foundation</Link>
           </nav>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 items-center text-center md:items-start md:text-left justify-center">
             <p className={`${fruances.className} text-[#E6E6E6CC]`}>Stay close to what I'm working on — books, the foundation, and life in between.</p>
             <div className="flex gap-3">
               <p className={`${sora.className} bg-[#FFFFFF1A] text-[#E6E6E6] p-3 rounded-lg border border-[#E6E6E64D]`}>kemiolumiya@gmail.com</p>
