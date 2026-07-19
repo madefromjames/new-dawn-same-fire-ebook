@@ -777,10 +777,22 @@ export default function Home() {
 
           <div className="flex flex-col gap-3 items-center text-center md:items-start md:text-left justify-center">
             <p className={`${fruances.className} text-[#E6E6E6CC]`}>Stay close to what I'm working on — books, the foundation, and life in between.</p>
-            <div className="flex gap-3">
-              <p className={`${sora.className} bg-[#FFFFFF1A] text-[#E6E6E6] p-3 rounded-lg border border-[#E6E6E64D]`}>kemiolumiya@gmail.com</p>
-              <a href="#" className={`${fruances.className} bg-[#C0840B] text-[#FFFFFF] py-3 px-4 rounded-lg text-nowrap`}>Join The List</a>
-            </div>
+            <form action="https://formspree.io/f/xnjedlnp" method="POST" className="flex w-full max-w-md flex-col gap-3 md:flex-row md:items-center">
+              <input type="hidden" name="_subject" value="New Newsletter Signup — New Dawn, Same Fire" />
+              <input type="hidden" name="message" value="I want to join your newsletter and stay close to what you're working on." />
+              <label className="sr-only" htmlFor="footer-email">Email address</label>
+              <input
+                id="footer-email"
+                name="email"
+                type="email"
+                required
+                placeholder="Enter Your Email"
+                className={`${sora.className} w-full rounded-lg border border-[#E6E6E64D] bg-[#FFFFFF1A] px-4 py-3 text-[#FFFFFF] placeholder:text-[#E6E6E6]/30 outline-none transition-colors focus:border-[#C0840B] md:flex-1`}
+              />
+              <button type="submit" className={`${fruances.className} w-full rounded-lg bg-[#C0840B] px-4 py-3 text-nowrap text-[#FFFFFF] md:w-auto cursor-pointer`}>
+                Join The List
+              </button>
+            </form>
           </div>
 
 
@@ -927,6 +939,7 @@ export default function Home() {
               onSubmit={handleRequestSubmit}
               method="POST"
               className="mt-6 grid grid-cols-1 text-xl gap-4 md:grid-cols-2">
+              <input type="hidden" name="_subject" value="New Hard Copy Request — New Dawn, Same Fire" />
               <label className="flex flex-col text-base gap-2 text-xl text-[#555555] md:col-span-1">
                 FULL NAME
                 <input required name="Full Name" className="rounded-lg border border-[#E5E7EB] px-4 py-3 outline-none focus:border-[#C0840B]" type="text" placeholder="e.g Adeola Bankole" />
